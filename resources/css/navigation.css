@@ -1,0 +1,72 @@
+.nav {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-style: normal;
+	font-size: 18px;
+	font-family: "Courier New", Courier, monospace;
+	text-align: center;
+}
+
+.nav li {
+	width: 160px;
+	position: relative;
+}
+
+.nav li a, .nav li span {
+	background: #333;
+	color: #fff;
+	display: block;
+	padding: 7px 8px;
+	text-decoration: none;
+	border-top: 1px solid #069;
+}
+
+.nav li a:hover, .nav li span:hover {
+	color: #069;
+}
+
+/*=== submenu ===*/
+
+.nav ul {
+	display: none;
+	position: absolute;
+	margin-left: 0px;
+	list-style: none;
+	padding: 0px;
+}
+
+.nav ul li {
+	width: 250px;
+	float: left;
+}
+
+.nav ul a, .nav ul span {
+	display: block;
+	height: 15px;
+	padding: 7px 8px;
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px solid #222;
+}
+
+.nav ul li a:hover, .nav ul li span:hover {
+	color: #069;
+}
+
+
+#main-navigation .nav li {
+    float: left;
+}
+
+#side-navigation .nav ul{
+    margin-left: 100%;
+    margin-top: -20%;
+}
+
+#main-navigation {
+    margin-left : 160px;
+	position: absolute;
+	z-index: 2;
+    /*margin-bottom: 200px; to be removed*/
+}
