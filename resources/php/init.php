@@ -1,12 +1,13 @@
 <?php
 
-include 'resources/php/functions/functions.php';
+include 'resources/templates/includes.php';
 
-$connection = mysqli_connect('localhost', 'root', '', 'studentnewspaper');
+//initially create database if neccessary
+setup_db();
+
+$connection = get_connection();
 mysqli_set_charset($connection, 'utf8');
-$q = mysqli_query($connection, 'Select * Articles');
-
-echo 'output'.$q;
+$q = mysqli_query($connection, 'Select * FROM Articles');
 
 $data = array();
 

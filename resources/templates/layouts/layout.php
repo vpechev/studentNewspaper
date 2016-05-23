@@ -1,7 +1,7 @@
 <html>
 <head>
     <?php
-        include 'resources/templates/includes.php';
+        
     ?>
     
     <title><?= $data['title']; ?></title>
@@ -13,10 +13,8 @@
         include "resources/templates/header.php";
         include "resources/templates/navigation.php";
     ?>
-    <div id="main-container">
-        <?php
-            include $data['content'];
-        ?>
+    <div id="main-container" class="container">
+        
     </div>
     <?php
         include "resources/templates/footer.php";

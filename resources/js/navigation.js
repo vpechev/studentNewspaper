@@ -11,6 +11,5 @@ $(document).ready(
                 $('ul', this).fadeOut();
             }
         );
-        
     }
 );

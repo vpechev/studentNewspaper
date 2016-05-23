@@ -12,3 +12,10 @@
     
     <!--navigation script-->
     <script src="resources/js/navigation.js"></script>
+    <script src="resources/js/main.js"></script>
+    
+    <!-- PHP -->
+    <?php    
+        include 'resources/php/functions/functions.php';
+        include 'resources/php/functions/dbInitScript.php';
+    ?>

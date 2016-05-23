@@ -6,7 +6,7 @@ public class ArticleDao {
      }
      
      public function add($article){
-         
+        
      }
      
      public function update($article){

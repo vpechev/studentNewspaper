@@ -1,5 +1,5 @@
 <?php
-public class Article {
+class Article {
     private $id;
     private $text;
     private $author;
@@ -8,7 +8,6 @@ public class Article {
     private $likesCount;
     private $dislikesCount;
     private $rating;
-    private $category;
     private $comments;
     
     public function __construct(){

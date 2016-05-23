@@ -1,5 +1,5 @@
 <?php
-public class User {
+class User {
     private $id;
     private $username;
     private $password;
