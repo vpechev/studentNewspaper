@@ -13,7 +13,19 @@
         static function create($entity) {
             $dao = new NewsDao();
             $dao->add($entity);
-            NewsController()::getAll();
+            NewsController::getAll();
+        }
+        
+        static function delete($id) {
+            $dao = new NewsDao();
+            $dao->deleteById($id);
+            NewsController::getAll();
+        }
+        
+        static function deleteAll() {
+            $dao = new NewsDao();
+            $dao->deleteAll();
+            NewsController::getAll();
         }
     }
 ?>

@@ -7,7 +7,7 @@ class NewsDao extends BaseDao{
      
      public function add($news){
         $conn = get_connection();
-        $query = "INSERT INTO News (text, publishDate) VALUES (" . $news->getText() . ", " . $news->getPublishDate() . ")";
+        $query = 'INSERT INTO news (text, publishDate) VALUES ("' . $news->getText() . '", ' . $news->getPublishDate() . ')';
                 
         $entity = mysqli_query($conn, $query);
         mysqli_close($conn);
@@ -36,7 +36,7 @@ class NewsDao extends BaseDao{
      
      public function findAll(){
         $conn = get_connection();
-        $query = "SELECT * FROM News"; 
+        $query = "SELECT id, text, publishDate FROM News"; 
                                    
         $entitiesList = array();
         $dbQuery = mysqli_query($conn, $query);
@@ -54,7 +54,15 @@ class NewsDao extends BaseDao{
      
      public function deleteById($id){
         $conn = get_connection();
-        $query = "USE studentnewspaper; DELETE * FROM News WHERE id = " . $id; 
+        $query = 'DELETE FROM news WHERE id = ' . $id;
+        mysqli_query($conn, $query); 
+        mysqli_close($conn);
+     }
+     
+     public function deleteAll(){
+        $conn = get_connection();
+        $query = 'DELETE FROM news';
+        mysqli_query($conn, $query); 
         mysqli_close($conn);
      }
      

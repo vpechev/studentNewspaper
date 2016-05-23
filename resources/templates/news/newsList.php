@@ -1,20 +1,23 @@
 <script>
-    $( document ).ready(function() {
+    $(document).ready(function() {
         $("#add-new").click(function(){
             callAjax("Router", "createRedirect", "post", "news");
+        });
+        
+        $(".deletable").click(function(event){
+            var data = {
+                id : event.target.id
+            };
+
+            callAjax("Router", "delete", "post", "news", data);
+        });
+        
+        $("#delete-all").click(function(event){
+            callAjax("Router", "deleteAll", "post", "news");
         });
     });
 </script>
 
-<?php
-    function updateCurrent($id){
-        
-    }
-    
-    function deleteCurrent($id){
-        echo "delete".$id;
-    }
-?>
 
 <div>
     <button id="add-new" class="btn btn-large btn-success" >Създай нов</button>
@@ -36,8 +39,8 @@
             <td> <?php echo $counter++; ?> </td>
             <td> <?php echo $el->getText(); ?> </td>
             <td> <?php echo $el->getPublishDate(); ?> </td>
-            <td> <button id="update-current" class="btn btn-large btn-warning" onclick="<?php updateCurrent($el->getId()); ?>">Редактирай</button></td>
-            <td> <button id="update-current" class="btn btn-large btn-danger" onclick="<?php deleteCurrent($el->getId()); ?>">Изтрий</button></td>
+            <td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>
+            <td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>
         </tr>        
         <?php } ?>
 </table>
