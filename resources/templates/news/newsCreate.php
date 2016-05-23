@@ -12,8 +12,7 @@
 <div>
     <div>
         <label for="text">Новина</label>
-        <textarea id="text" cols="100" rows="10">
-        </textarea>
+        <textarea id="text" cols="100" rows="10"> </textarea>
     </div>
     <div>
         <button id="submit-btn" class="btn btn-large btn-success">Създай</button>

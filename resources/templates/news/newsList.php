@@ -12,6 +12,17 @@
             callAjax("Router", "delete", "post", "news", data);
         });
         
+        $(".updatable").click(function(event){
+            var elementChildren = $(event.target).parents().eq(1).children();
+            var data = {
+                id : event.target.id,
+                text : elementChildren.eq(1).text(),
+                date : elementChildren.eq(2).text()
+            };
+
+            callAjax("Router", "updateRedirect", "post", "news", data);
+        });
+        
         $("#delete-all").click(function(event){
             callAjax("Router", "deleteAll", "post", "news");
         });
@@ -38,7 +49,7 @@
         <tr>
             <td> <?php echo $counter++; ?> </td>
             <td> <?php echo $el->getText(); ?> </td>
-            <td> <?php echo $el->getPublishDate(); ?> </td>
+            <td> <?php var_dump($el->getPublishDate()); ?> </td>
             <td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>
             <td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>
         </tr>        

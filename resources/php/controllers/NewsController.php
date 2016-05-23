@@ -27,6 +27,12 @@
             $dao->deleteAll();
             NewsController::getAll();
         }
+        
+        static function update($entity){
+            $dao = new NewsDao();
+            $dao->update($entity);
+            NewsController::getAll();
+        }
     }
 ?>
 
