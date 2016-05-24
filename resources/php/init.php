@@ -11,11 +11,7 @@ $q = mysqli_query($connection, 'Select * FROM Articles');
 
 $data = array();
 
-// while ($row = mysql_fetch_assoc($q)) {
-//     $data['books'][] = $row;
-// }
-
-$data['header'] = 'resources/templates/header.php';
+ $data['header'] = 'resources/templates/header.php';
 $data['content'] = 'resources/templates/home.php';
 $data['navigation'] = 'resources/templates/navigation.php';
 

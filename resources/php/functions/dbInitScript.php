@@ -5,6 +5,7 @@ function setup_db() {
     create_article_table();
     create_news_table();
     create_users_table();
+    create_comments_table();
 }
 
 function create_db(){
@@ -32,6 +33,7 @@ function create_article_table() {
     $query = "USE studentnewspaper;
                 CREATE TABLE IF NOT EXISTS Articles (
                     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    title VARCHAR(50) NOT NULL,
                     text VARCHAR(300) NOT NULL,
                     userId INT(6) NOT NULL,
                     publishDate DATETIME,
@@ -65,6 +67,21 @@ function create_users_table() {
                     username VARCHAR(30) NOT NULL,
                     password VARCHAR(300) NOT NULL
             )";
+            
+    mysqli_query($conn, $query);
+    mysqli_close($conn);
+}
+
+function create_comments_table() {
+    $conn = get_connection();
+    $query = "USE studentnewspaper;
+                CREATE TABLE IF NOT EXISTS Comments (
+                    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    authorId INT(6) NOT NULL,
+                    articleId INT(6) NOT NULL,
+                    text VARCHAR(500),
+                    publishDate DATETIME
+                )";
             
     mysqli_query($conn, $query);
     mysqli_close($conn);

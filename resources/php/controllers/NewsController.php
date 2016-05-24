@@ -1,7 +1,7 @@
 <?php
-    include "../daos/NewsDao.php";
-    include "../functions/functions.php";
-    include "BaseController.php";
+    include_once  "../daos/NewsDao.php";
+    include_once  "../functions/functions.php";
+    include_once  "BaseController.php";
     
     class NewsController extends BaseController{
         static function getAll() {

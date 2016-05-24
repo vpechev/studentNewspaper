@@ -1,6 +1,7 @@
 <?php
-include "BaseDao.php";
-include "../models/news.php";
+include_once "BaseDao.php";
+include_once "../models/news.php";
+include_once "../functions/dbInitScript.php";
 
 class NewsDao extends BaseDao{
      public function __construct() { }    
@@ -27,7 +28,7 @@ class NewsDao extends BaseDao{
      public function findById($id){
         $conn = get_connection();
         $query = "USE studentnewspaper; 
-                  SELECT * FROM News WHERE id = " . $news->id; 
+                  SELECT * FROM News WHERE id = " . $id; 
                 
         $entity = mysqli_query($conn, $query);
         mysqli_close($conn);

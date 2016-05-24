@@ -16,6 +16,6 @@
     
     <!-- PHP -->
     <?php    
-        include 'resources/php/functions/functions.php';
-        include 'resources/php/functions/dbInitScript.php';
+        include_once 'resources/php/functions/functions.php';
+        include_once 'resources/php/functions/dbInitScript.php';
     ?>

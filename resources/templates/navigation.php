@@ -6,6 +6,22 @@
         $("#news-link").click(function(){
             callAjax("Router", "getAll", "post", "news");
         });
+        
+        $("#articles-link").click(function(){
+            callAjax("Router", "getAll", "post", "articles");
+        });
+        
+        $("#home-link").click(function(){
+            callAjax("Router", "", "post", "home");
+        });
+        
+        $("#users-link").click(function(){
+            callAjax("Router", "", "post", "users");
+        });
+        
+        $("#contacts-link").click(function(){
+            callAjax("Router", "", "post", "contacts");
+        });        
     });
 </script>
 
@@ -16,7 +32,7 @@
             <li> <span id="news-link">Новини</span> </li>
             <li> <span id="users-link">Потребители</span> </li>
             <li> <span id="articles-link">Статии</span> </li>           
-            <li> <span id="contacts-link">Контакти</span></li>
+            <li> <span id="contacts-link">Контакти </span></li>
         </ul>
     </div>
 </nav>
