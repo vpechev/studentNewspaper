@@ -4,6 +4,12 @@
     include_once  "BaseController.php";
     
     class ArticlesController extends BaseController{
+        static function get($id) {
+            $dao = new ArticleDao();
+            $data["article"] = $dao->findById($id);
+            render($data, '../../templates/articles/articleDetails.php');             
+        }
+        
         static function getAll() {
             $dao = new ArticleDao();
             $data["articlesList"] = $dao->findAll();
@@ -14,6 +20,25 @@
             $dao = new ArticleDao();
             $dao->add($entity);
             ArticlesController::getAll();
+        }
+        
+        static function update($entity){
+            $dao = new ArticleDao();
+            $dao->update($entity);
+            ArticlesController::getAll();
+        }
+        
+        static function like($id) {
+            var_dump($id);
+            $dao = new ArticleDao();
+            $dao->like($id);
+            ArticlesController::get($id);            
+        }
+        
+        static function dislike($id) {
+            $dao = new ArticleDao();
+            $dao->dislike($id);
+            ArticlesController::get($id);
         }
         
         static function delete($id) {
@@ -28,11 +53,6 @@
             ArticlesController::getAll();
         }
         
-        static function update($entity){
-            $dao = new ArticleDao();
-            $dao->update($entity);
-            ArticlesController::getAll();
-        }
     }
 ?>
 

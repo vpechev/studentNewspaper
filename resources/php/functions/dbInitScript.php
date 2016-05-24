@@ -37,7 +37,7 @@ function create_article_table() {
                     text VARCHAR(300) NOT NULL,
                     userId INT(6) NOT NULL,
                     publishDate DATETIME,
-                    category VARCHAR(30),
+                    category INT(6),
                     likesCount INT(6),
                     dislikesCount INT(6)
             )";

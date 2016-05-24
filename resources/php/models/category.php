@@ -26,6 +26,14 @@ class Category {
                           $this->NATURE, 
                           $this->TECHNOLOGIES);
         return $list;
+    }
+    
+    public function getEntryByValue($id) {
+        foreach($this->getCategoriesList() as $key) {
+            if($key[0] == $id)
+                return array($key[0], $key[1]);
+        }
+        return null;
     } 
 }
 ?>

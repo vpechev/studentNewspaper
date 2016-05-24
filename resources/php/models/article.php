@@ -1,4 +1,6 @@
 <?php
+include_once "category.php"; 
+
 class Article {
     private $id;
     private $title;
@@ -6,6 +8,7 @@ class Article {
     private $authorId;
     private $publishDate;
     private $category;
+    private $categoryEntry;
     private $likesCount;
     private $dislikesCount;
     private $rating;
@@ -17,7 +20,7 @@ class Article {
         $this->text = $text;
         $this->authorId = $authorId;
         $this->publishDate = $publishDate;
-        $this->catgegory = $category;
+        $this->category = $category;
         $this->likesCount = $likesCount;
         $this->dislikesCount = $dislikesCount;
     }
@@ -44,6 +47,12 @@ class Article {
         
     public function getCategory(){
         return $this->category;
+    }
+    
+    public function getCategoryEntry(){
+        $cat = new Category();
+        $this->categoryEntry = $cat->getEntryByValue($this->category);
+        return $this->categoryEntry;
     }
     
     public function getLikesCount(){

@@ -11,8 +11,8 @@
 
         $("#element-id").val('<?php echo $data["id"]; ?>');
         $("#text").val( "<?php echo (string)$data["text"]; ?>");
-        <?php $date = new DateTime($data["date"]);?>
-        $("#date").val( "<?php echo $date->format('Y-m-d'); ?>" );    
+        // <?php //$date = new DateTime($data["date"]); ?>
+        // $("#date").val( "<?php //echo $date->format('Y-m-d'); ?>" );    
     });
 </script>
 

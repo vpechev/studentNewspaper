@@ -12,6 +12,14 @@
             callAjax("Router", "delete", "post", "articles", data);
         });
         
+        $(".gotoable").click(function(event){
+            var data = {
+                id : event.target.id
+            };
+
+            callAjax("Router", "details", "post", "articles", data);
+        });
+        
         $(".updatable").click(function(event){
             var elementChildren = $(event.target).parents().eq(1).children();
             var data = {

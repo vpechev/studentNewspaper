@@ -7,6 +7,7 @@ class ArticleDao extends BaseDao {
      
      public function add($article){
         $conn = get_connection();
+        //var_dump($article->getCategory());
         $entityDate = "STR_TO_DATE(".$article->getPublishDate().", '%m/%d/%Y')";
         $query = 'INSERT INTO articles 
                         (title, text, userId, publishDate, category, likesCount, dislikesCount) 
@@ -46,10 +47,13 @@ class ArticleDao extends BaseDao {
      public function findById($id){
         $conn = get_connection();
         $query = "SELECT id, title, text, userId, publishDate, category, likesCount, dislikesCount FROM articles WHERE id = " . $id; 
-                    
+        var_dump($id);
+        $entity;    
+        $dbQuery = mysqli_query($conn, $query);                    
         while($row = mysqli_fetch_assoc($dbQuery)){
-            $entity = new Article($row["id"], $row["title"], $row["text"], $row["userId"], $row["publishDate"], $row["category"], $row["likesCount"], $row["disLikesCount"]);
+            $entity = new Article($row["id"], $row["title"], $row["text"], $row["userId"], $row["publishDate"], $row["category"], $row["likesCount"], $row["dislikesCount"]);
         }
+        
         mysqli_close($conn);
         return $entity;
      }
@@ -69,7 +73,22 @@ class ArticleDao extends BaseDao {
      }
      
      public function findAllByFilter($skip, $take){
-         
+        
+     }
+     
+     public function like($id) {
+         var_dump($id);
+        $conn = get_connection();
+        $query = "UPDATE SET likesCount = SET likesCount + 1 WHERE id = " . $id;
+        mysqli_query($conn, $query);
+        mysqli_close($conn); 
+     }
+
+     public function dislike($id) {
+        $conn = get_connection();
+        $query = "UPDATE SET dislikesCount = SET dislikesCount + 1 WHERE id = " . $id;
+        mysqli_query($conn, $query);
+        mysqli_close($conn); 
      }
      
      public function deleteById($id){
