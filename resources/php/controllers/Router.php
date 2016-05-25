@@ -107,6 +107,8 @@
             render(null, '/../../templates/users/usersList.php');
         } else if($_POST['pageTo'] == 'home') {
             render(null, '~/resources');
+        } else if($_POST['pageTo'] == 'videos') {
+            render(null, '/../../templates/videos/videosList.php');
         } else if($_POST['pageTo'] == 'contacts') {
             render(null, '/../../templates/contacts/contacts.php');
         }

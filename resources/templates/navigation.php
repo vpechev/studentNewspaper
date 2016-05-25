@@ -21,7 +21,11 @@
         $("#users-link").click(function(){
             callAjax("Router", "", "post", "users");
         });
-        
+
+        $("#videos-link").click(function(){
+            callAjax("Router", "", "post", "videos");
+        });        
+
         $("#contacts-link").click(function(){
             callAjax("Router", "", "post", "contacts");
         });
@@ -39,8 +43,9 @@
             <li> <span id="news-link">Новини</span> </li>
             <li> <span id="users-link">Потребители</span> </li>
             <li> <span id="articles-link">Статии</span> </li>           
+            <li> <span id="videos-link">Клипове</span></li>
             <li> <span id="contacts-link">Контакти </span></li>
-            <li> <span id="contacts-link">Изход </span></li>
+            <li> <span id="logout-link">Изход </span></li>
         </ul>
     </div>
 </nav>
