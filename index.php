@@ -1,8 +1,3 @@
 <?php
-	include("resources/php/init.php");
+	include_once("resources/php/init.php");
 ?>
-
-
-
-	
-

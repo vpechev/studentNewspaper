@@ -7,3 +7,9 @@ header {
     background-color: aqua;
 }
 /*FINAL REMOVING BLOCK*/
+
+
+.comment {
+    margin: 20px;
+    border: 1px solid red;
+}

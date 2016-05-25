@@ -1,6 +1,9 @@
 <?php
-    require "NewsController.php"; 
-    require "ArticlesController.php"; 
+    require_once "NewsController.php"; 
+    require_once "ArticlesController.php"; 
+    require_once "CommentsController.php";
+    require_once "UsersController.php";
+     
     if(isset($_POST['pageTo'])){
         if($_POST['pageTo'] == 'news') {
             $controller = new NewsController();
@@ -86,7 +89,21 @@
                     $controller->deleteAll();
                     break;    
             }
-        } else if($_POST['pageTo'] == 'users') {
+        } else if($_POST['pageTo'] == 'comments') {
+             $controller = new CommentsController();
+              switch($_POST['action']){
+                case "create" : 
+                    $entity = new Comment(0, 
+                                          /*$_SESSION["user-id"], */ 1, 
+                                          $_POST["data"]["articleId"],
+                                          $_POST["data"]["text"],
+                                          date('d/m/Y', time())
+                                         );
+                    $controller->create($entity);
+                    break;
+              }
+        } 
+        else if($_POST['pageTo'] == 'users') {
             render(null, '/../../templates/users/usersList.php');
         } else if($_POST['pageTo'] == 'home') {
             render(null, '~/resources');

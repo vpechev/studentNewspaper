@@ -3,6 +3,9 @@
 
 <script>
     $( document ).ready(function() {
+        $("#home-link").click(function(){
+            location.reload();
+        });
         $("#news-link").click(function(){
             callAjax("Router", "getAll", "post", "news");
         });
@@ -21,7 +24,11 @@
         
         $("#contacts-link").click(function(){
             callAjax("Router", "", "post", "contacts");
-        });        
+        });
+        
+        $("#logout-link").click(function(){
+            callAjax("Router", "", "post", "contacts");
+        });      
     });
 </script>
 
@@ -33,6 +40,7 @@
             <li> <span id="users-link">Потребители</span> </li>
             <li> <span id="articles-link">Статии</span> </li>           
             <li> <span id="contacts-link">Контакти </span></li>
+            <li> <span id="contacts-link">Изход </span></li>
         </ul>
     </div>
 </nav>

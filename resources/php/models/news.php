@@ -6,7 +6,7 @@ class News {
     
     public function __construct($id, $text, $publishDate){
         $this->id = $id;
-        $this->text = $text;
+        $this->text = trim($text);
         $this->publishDate = $publishDate; 
     }
     

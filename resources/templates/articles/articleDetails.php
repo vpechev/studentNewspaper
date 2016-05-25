@@ -16,7 +16,6 @@
         var data = { id : $("#element-id").val() };
                 
         $("#like-btn").click(function(){
-            debugger;
                 callAjax("Router", "like", "post", "articles", data);
                 // var likesField = $("#likes-field");
                 // likesField.text(likesField.text() + 1);
@@ -41,12 +40,27 @@
                 text = $("#text").text();
             download(filename, text);
         });
+        
+        $("#add-comment-btn").click(function(){
+            var data = {
+                        articleId : $("#element-id").val(),
+                        text : $.trim( $("#comment-field").val() ) 
+                       };
+                
+            if(data.text.length > 0) {
+                callAjax2("Router", "create", "post", "comments", data);
+                $("#comments-container")
+                    .children(".comment")
+                    .after('<div class="comment">' + data.text + '</div>');
+                $("#comment-field").val("");
+            }
+        });
     });
     
 </script>
 <h1>Детайли</h1>
 <div>
-    <input id="element-id" hidden />
+    <input id="element-id" hidden value="<?php echo $data["article"]->getId()?>"/>
 </div>
 <div>
    <label>Заглавие</label>
@@ -82,9 +96,13 @@
 </div>
 <div>
    <label>Коментари</label>
-   <div><?php echo $data["article"]->getComments()?></div>
+   <div id="comments-container">
+        <?php foreach($data["article"]->getComments() as $comment)
+                echo '<div class="comment">'.$comment->getText().'</div>';
+        ?>
+   </div>
    <div>
-       <textarea rows="5" colls="100">
+       <textarea id="comment-field" rows="5" colls="100">
        </textarea>
        <button id="add-comment-btn" class="btn btn-large btn-success">Добави</button>
    </div>

@@ -10,7 +10,7 @@ class Comment {
         $this->id = $id;
         $this->authorId = $authorId;
         $this->articleId = $articleId;
-        $this->text = $text;
+        $this->text = trim($text);
         $this->publishDate = $publishDate; 
     }
     

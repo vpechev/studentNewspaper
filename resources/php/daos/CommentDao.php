@@ -7,12 +7,18 @@ class CommentDao extends BaseDao{
      
      public function add($comment){
         $conn = get_connection();
-        $entityDate = "STR_TO_DATE(".$news->getPublishDate().", '%m/%d/%Y')";
-        $query = 'INSERT INTO '.$this->tableName.' (authorId, articleId, text, publishDate) VALUES ("' . $news->getAuthorId() . '", '$news->getText() . '", ' . $entityDate . ')';
+        $entityDate = $comment->getPublishDate();
+        $query = 'INSERT INTO '.$this->tableName
+           . ' (authorId, articleId, text, publishDate) '
+           . 'VALUES ("' . $comment->getAuthorId() . '", "' . $comment->getArticleId() . '", "' . $comment->getText() . '", ' . $entityDate . ')';
                 
-        $entity = mysqli_query($conn, $query);
+        //$entity = mysqli_query($conn, $query);
+        if (!mysqli_query($conn, $query)) {
+              printf("Errormessage: %s\n", mysqli_error($conn));
+        }
+        
         mysqli_close($conn);
-        return $entity;
+        //return $entity;
      }
      
      public function update($comment){
@@ -47,7 +53,7 @@ class CommentDao extends BaseDao{
         $entitiesList = array();
         $dbQuery = mysqli_query($conn, $query);
         while($row = mysqli_fetch_assoc($dbQuery)){
-            $entity = new News($row["id"], $row["authorId"], $row["articleId"], $row["text"], $row["publishDate"]);
+            $entity = new Comment($row["id"], $row["authorId"], $row["articleId"], $row["text"], $row["publishDate"]);
             $entitiesList[] = $entity;
         }
         mysqli_close($conn);

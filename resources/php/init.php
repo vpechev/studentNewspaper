@@ -1,21 +1,25 @@
 <?php
+session_start();
 
-include 'resources/templates/includes.php';
+//external libs and internal basefiles
+include_once 'resources/templates/includes.php';
 
 //initially create database if neccessary
 setup_db();
 
+//set default charset
 $connection = get_connection();
 mysqli_set_charset($connection, 'utf8');
-$q = mysqli_query($connection, 'Select * FROM Articles');
+mysqli_close($connection);
 
 $data = array();
 
- $data['header'] = 'resources/templates/header.php';
-$data['content'] = 'resources/templates/home.php';
-$data['navigation'] = 'resources/templates/navigation.php';
+// $data['header'] = 'resources/templates/header.php';
+// $data['content'] = 'resources/templates/home.php';
+// $data['navigation'] = 'resources/templates/navigation.php';
 
 render($data, 'resources/templates/layouts/layout.php');
+        
 
 
 ?>

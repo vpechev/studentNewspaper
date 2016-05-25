@@ -16,8 +16,8 @@ class Article {
     
     public function __construct($id, $title, $text, $authorId, $publishDate, $category, $likesCount, $dislikesCount){
         $this->id = $id;
-        $this->title = $title;
-        $this->text = $text;
+        $this->title = trim($title);
+        $this->text = trim($text);
         $this->authorId = $authorId;
         $this->publishDate = $publishDate;
         $this->category = $category;
@@ -70,6 +70,10 @@ class Article {
     
     public function getComments(){
         return $this->comments;
+    }
+    
+    public function setComments($commentsList){
+        $this->comments = $commentsList;
     }
 }
 ?>
