@@ -1,4 +1,17 @@
 <script>
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+    
     $(document).ready(function() {
         var data = { id : $("#element-id").val() };
                 
@@ -22,7 +35,14 @@
         $("#delete-btn").click(function(){
                 callAjax("Router", "delete", "post", "articles", data);
         });
+        
+        $("#download-btn").click(function(){
+            var filename = $("#title").text() + '.txt',
+                text = $("#text").text();
+            download(filename, text);
+        });
     });
+    
 </script>
 <h1>Детайли</h1>
 <div>
@@ -30,7 +50,7 @@
 </div>
 <div>
    <label>Заглавие</label>
-   <div><?php echo $data["article"]->getTitle()?></div>
+   <div id="title"><?php echo $data["article"]->getTitle()?></div>
 </div>
 <div>
    <label>Лайкове</label>
@@ -42,7 +62,7 @@
 </div>
 <div>
    <label>Статия</label>
-   <div><?php echo $data["article"]->getText()?></div>
+   <div id="text"><?php echo $data["article"]->getText()?></div>
 </div>
 <div>
    <label>Дата на публикуване</label>
@@ -57,6 +77,8 @@
     <button id="dislike-btn" class="btn btn-large btn-danger">Не харесвам</button>
     <button id="update-btn" class="btn btn-large btn-warning">Редактирай</button>
     <button id="delete-btn" class="btn btn-large btn-default">Изтрий</button>
+    <button id="download-btn" class="btn btn-large btn-success">Изтегли</button>
+    </form>
 </div>
 <div>
    <label>Коментари</label>

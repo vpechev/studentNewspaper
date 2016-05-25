@@ -12,6 +12,25 @@
             };
             callAjax("Router", "create", "post", "articles", data);
         });
+        
+        $("#upload-btn").change(function(){
+            var fileDisplayArea = document.getElementById('text');
+
+                var file = document.getElementById('upload-btn').files[0];
+                var textType = /text.*/;
+
+                if (file.type.match(textType)) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        fileDisplayArea.innerText = reader.result;
+                    }
+
+                    reader.readAsText(file);	
+                } else {
+                    fileDisplayArea.innerText = "File not supported!";
+                }
+        });
     });
 </script>
 
@@ -33,6 +52,7 @@
     </div>
     
     <div>
+        <input id="upload-btn" type="file">
         <label for="text">Статия</label>
         <textarea id="text" cols="150" rows="50"> </textarea>
     </div>
