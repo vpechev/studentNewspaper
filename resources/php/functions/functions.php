@@ -1,7 +1,7 @@
 <?php
 
 function render($data, $name) {
-    include $name;
+    include_once $name;
 }
 
 ?>

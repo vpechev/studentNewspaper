@@ -1,28 +1,33 @@
 <?php
     if($_POST){
-        $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
-        var_dump($_POST);
-        if($username == 'ivan' && $password =='ivan'){
-            $_SESSION['user-id'] = 5;
-            echo 'ok';
-        } else {
-            echo 'Нещо объркА!';
-        }
+        if(isset($_POST['username']) && isset($_POST['password']))
+        {
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
+            if($username == 'ivan' && $password =='ivan'){
+                $_SESSION['user-id'] = 5;
+                
+            } else {
+                echo 'Грешно потребителско име или парола!';
+            }
+        }   
+
         
     }
 ?>
 
 <div class="col col-md-6">
-    <form id="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form id="login-form" 
+          method="POST" 
+          action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <h2>Вход</h2>
         <div>
             <label for="username">Потребителско име</label>
-            <input id="username" type="text" />
+            <input id="username" type="text" name="username" />
         </div>
         <div>
             <label for="password">Парола</label>
-            <input id="password" type="password" />
+            <input id="password" type="password"  name="password" />
         </div>
         <div>
             <input id="submit-btn" type="submit" value="Вход"/>

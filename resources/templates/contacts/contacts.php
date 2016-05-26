@@ -31,7 +31,7 @@
     <div id="tedi-div" class="col col-md-6">
         <div>име: Теодора Иванова</div>
         <div>специалност:Софтуерно инженерство</div>
-        <div>фак.номер 61XXX</div>
-        <div>email: tedi@abv.bg</div>
+        <div>фак.номер 61751</div>
+        <div>email: tedi_eve864@yahoo.com</div>
     </div>
 </div>

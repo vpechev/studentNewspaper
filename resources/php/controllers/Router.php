@@ -106,11 +106,13 @@
         else if($_POST['pageTo'] == 'users') {
             render(null, '/../../templates/users/usersList.php');
         } else if($_POST['pageTo'] == 'home') {
-            render(null, '~/resources');
+            render(null, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .'auth.php');
         } else if($_POST['pageTo'] == 'videos') {
             render(null, '/../../templates/videos/videosList.php');
         } else if($_POST['pageTo'] == 'contacts') {
             render(null, '/../../templates/contacts/contacts.php');
+        } else if($_POST['pageTo'] == 'logout') {
+            render(null, '/../../templates/users/logout.php');
         }
     }
 ?>

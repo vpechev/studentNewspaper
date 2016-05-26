@@ -4,7 +4,7 @@
 <script>
     $( document ).ready(function() {
         $("#home-link").click(function(){
-            location.reload();
+            //location.reload();
         });
         $("#news-link").click(function(){
             callAjax("Router", "getAll", "post", "news");
@@ -31,7 +31,7 @@
         });
         
         $("#logout-link").click(function(){
-            callAjax("Router", "", "post", "contacts");
+            callAjax("Router", "", "post", "logout");
         });      
     });
 </script>
