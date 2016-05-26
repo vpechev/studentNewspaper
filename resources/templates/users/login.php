@@ -14,7 +14,7 @@
 ?>
 
 <div class="col col-md-6">
-    <form id="login-form" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
+    <form id="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <h2>Вход</h2>
         <div>
             <label for="username">Потребителско име</label>
@@ -29,5 +29,3 @@
         </div>
     </form>
 </div>
-
-
