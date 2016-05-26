@@ -1,5 +1,5 @@
 <div>
-    <form id="register-form" method="POST">
+    <form id="register-form" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
         <h2>Регистрация</h2>
         <div>
             <label for="username">Потребителско име</label>
