@@ -4,8 +4,22 @@ class User {
     private $username;
     private $password;
     
-    public function __construct(){
-        
+    public function __construct($id, $username, $password){
+        $this->id = $id;
+        $this->username = $username;
+        $this->password = $password;        
+    }
+    
+    public function getId(){
+        return $this->id;
+    }
+    
+    public function getUsername(){
+        return $this->id;
+    }
+    
+    public function getPassword(){
+        return $this->id;
     }
 }
 ?>
