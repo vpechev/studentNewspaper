@@ -13,7 +13,16 @@
     }
     
     $(document).ready(function() {
-        var data = { id : $("#element-id").val() };
+        var data = { 
+            id : $("#element-id").val(),
+            title : $("#title").text(), 
+            text : $("#text").text(), 
+            likesCount : $("#likes-field").text(), 
+            dislikesCount : $("#dislikes-field").text(), 
+            title : $("#title").text(), 
+            publishDate : $('#publishDate'),
+            category : $('#category').attr('value')
+        };
                 
         $("#like-btn").click(function(){
                 callAjax("Router", "like", "post", "articles", data);
@@ -80,11 +89,11 @@
 </div>
 <div>
    <label>Дата на публикуване</label>
-   <div><?php echo $data["article"]->getPublishDate()?></div>
+   <div id="publishDate"><?php echo $data["article"]->getPublishDate()?></div>
 </div>
 <div>
    <label>Категория</label>
-   <div><?php echo $data["article"]->getCategoryEntry()[1]?></div>
+   <div id="category" value="<?php echo $data["article"]->getCategoryEntry()[0]?>"><?php echo $data["article"]->getCategoryEntry()[1]?></div>
 </div>
 <div>
     <button id="like-btn" class="btn btn-large btn-success">Харесвам</button>
@@ -98,11 +107,11 @@
    <label>Коментари</label>
    <div id="comments-container">
         <?php foreach($data["article"]->getComments() as $comment)
-                echo '<div class="comment">'.$comment->getText().'</div>';
+                echo '<div class="comment list-group-item">'.$comment->getPublishDate(). ' ' .$comment->getText().'</div>';
         ?>
    </div>
    <div>
-       <textarea id="comment-field" rows="5" colls="100">
+       <textarea id="comment-field" class="comment-field" rows="5" colls="500">
        </textarea>
        <button id="add-comment-btn" class="btn btn-large btn-success">Добави</button>
    </div>

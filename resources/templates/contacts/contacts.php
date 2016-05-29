@@ -7,6 +7,7 @@
         font-size: 20px;
         font-family: cortana;
         font-style: italic;
+        margin-bottom: 10%;
     } 
     div#vlado-div {
         -ms-transform: rotate(-20deg); /* IE 9 */

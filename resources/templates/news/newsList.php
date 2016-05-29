@@ -49,7 +49,7 @@
         <tr>
             <td> <?php echo $counter++; ?> </td>
             <td> <?php echo $el->getText(); ?> </td>
-            <td> <?php var_dump($el->getPublishDate()); ?> </td>
+            <td> <?php echo date('Y-m-d', strtotime($el->getPublishDate())); ?> </td>
             <td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>
             <td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>
         </tr>        

@@ -2,7 +2,7 @@
 session_start();
 
 //external libs and internal basefiles
-include_once 'resources/templates/includes.php';
+require_once 'resources/templates/includes.php';
 
 //initially create database if neccessary
 setup_db();

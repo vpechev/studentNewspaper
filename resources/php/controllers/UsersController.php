@@ -1,9 +1,9 @@
 <?php
-    include_once  "../daos/UserDao.php";
-    include_once  "../functions/functions.php";
+    include_once  __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'daos' . DIRECTORY_SEPARATOR . 'UserDao.php';
+    include_once  __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'functions.php';
     include_once  "BaseController.php";
     
-    class ArticlesController extends BaseController{
+    class UsersController extends BaseController{
         static function get($username, $password) {
             $dao = new UserDao();
             return $dao->findByUsernameAndPassword($id);

@@ -21,11 +21,10 @@
         });
         
         $(".updatable").click(function(event){
+            debugger;
             var elementChildren = $(event.target).parents().eq(1).children();
             var data = {
-                id : event.target.id,
-                text : elementChildren.eq(1).text(),
-                date : elementChildren.eq(2).text()
+                id : event.target.id
             };
 
             callAjax("Router", "updateRedirect", "post", "articles", data);
@@ -59,7 +58,7 @@
         <tr>
             <td> <?php echo $counter++; ?> </td>
             <td> <?php echo $el->getTitle(); ?> </td>
-            <td> <?php var_dump($el->getPublishDate()); ?> </td>
+            <td> <?php echo date('Y-m-d', strtotime($el->getPublishDate())); ?> </td>
             <td> <?php echo $el->getRating(); ?> </td>
             <td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>
             <td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>

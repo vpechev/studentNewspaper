@@ -8,14 +8,14 @@ class ArticleDao extends BaseDao {
      public function add($article){
         $conn = get_connection();
         //var_dump($article->getCategory());
-        $entityDate = "STR_TO_DATE(".$article->getPublishDate().", '%m/%d/%Y')";
+        $entityDate = date('Y-m-d', strtotime($article->getPublishDate()));
         $query = 'INSERT INTO articles 
                         (title, text, userId, publishDate, category, likesCount, dislikesCount) 
                         VALUES ("' 
                             . $article->getTitle() . '", "' 
                             . $article->getText() . '", "'
                             . $article->getAuthorId() . '", "'
-                            . $article->getPublishDate() . '", "'
+                            . date('Y-m-d', strtotime(date('Y-m-d'))) . '", "'
                             . $article->getCategory() . '", "'
                             . $article->getLikesCount() . '", "'
                             . $article->getDislikesCount() . '")';
@@ -33,7 +33,7 @@ class ArticleDao extends BaseDao {
                         title = "' . $article -> getTitle() 
                         . '", text = "' . $article -> getText() 
                         . '", userId = "' . $article -> getAuthorId() 
-                        . '", publishDate = "' . $article -> getPublishDate() 
+                        . '", publishDate = "' . date('Y-m-d', strtotime($article -> getPublishDate())) 
                         . '", category = "' . $article -> getCategory() 
                         . '", likesCount = "' . $article -> getLikesCount() 
                         . '", dislikesCount = "' . $article -> getDislikesCount() 
@@ -47,7 +47,6 @@ class ArticleDao extends BaseDao {
      public function findById($id){
         $conn = get_connection();
         $query = "SELECT id, title, text, userId, publishDate, category, likesCount, dislikesCount FROM articles WHERE id = " . $id; 
-        var_dump($id);
         $entity;    
         $dbQuery = mysqli_query($conn, $query);                    
         while($row = mysqli_fetch_assoc($dbQuery)){

@@ -1,9 +1,9 @@
 <?php
 include_once "BaseDao.php";
-include_once "../models/user.php";
-include_once "../functions/dbInitScript.php";
+include_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'user.php';
+include_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'dbInitScript.php';
 
-class NewsDao extends BaseDao{
+class UserDao extends BaseDao{
      public function __construct() { }    
      
      public function add($user){
@@ -12,8 +12,7 @@ class NewsDao extends BaseDao{
                 
         $entity = mysqli_query($conn, $query);
         mysqli_close($conn);
-         mysql_query( "SELECT LAST_INSERT_ID()" )
-        return $entity;
+        return  mysql_query( "SELECT LAST_INSERT_ID()" );
      }
      
      public function update($user){

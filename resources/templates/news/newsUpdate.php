@@ -11,18 +11,22 @@
 
         $("#element-id").val('<?php echo $data["id"]; ?>');
         $("#text").val( "<?php echo (string)$data["text"]; ?>");
-        // <?php //$date = new DateTime($data["date"]); ?>
-        // $("#date").val( "<?php //echo $date->format('Y-m-d'); ?>" );    
+        $("#date").val('<?php echo date('Y-m-d', strtotime($data["date"]));?>');    
     });
 </script>
 
 <div>
     <div>
         <input id="element-id" hidden />
-        <label for="text">Новина</label>
-        <textarea id="text" cols="100" rows="10"></textarea>
-        <label for="date">Дата на създаване</label>
-        <input id="date" type="date"/>
+        
+        <div>
+            <label for="text">Новина</label>
+            <textarea id="text" cols="100" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="date">Дата на създаване</label>
+            <input id="date" type="date"/>
+        </div>
     </div>
     <div>
         <button id="submit-btn" class="btn btn-large btn-success">Създай</button>

@@ -60,13 +60,17 @@
                     $controller->create($entity);
                     break;
                 case "updateRedirect" :
-                    // $data["id"] = $_POST["data"]["id"];
-                    // $data["text"] = $_POST["data"]["text"];
-                    // $data["date"] = $_POST["data"]["date"];
+                    $entity = $controller->get($_POST["data"]["id"]);
+                    
+                    $data["id"] = $entity -> getId();
+                    $data["title"] = $entity -> getTitle();
+                    $data["text"] = $entity -> getText();
+                    $data["date"] = $entity -> getPublishDate;
+                    $data["category"] = $entity -> getCategoryEntry();
                     render($data, '/../../templates/articles/articleUpdate.php');
                     break;
                 case "update" :
-                    $entity = new Article($_POST["data"]["id"], $_POST["data"]["text"], $_POST["data"]["date"]);
+                    $entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], $_SESSION['user-id'], $_POST["data"]["date"], $_POST["data"]["category"], $_POST["data"]["likesCount"], $_POST["data"]["dislikesCount"]);
                     $controller->update($entity);
                     break;
                 case "details" :
