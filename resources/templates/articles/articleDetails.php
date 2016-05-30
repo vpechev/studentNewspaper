@@ -12,6 +12,21 @@
         document.body.removeChild(element);
     }
     
+    function getCurrentDate(){
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+        return yyyy+'/' + mm +'/' + dd;
+    }
+    
     $(document).ready(function() {
         var data = { 
             id : $("#element-id").val(),
@@ -25,26 +40,31 @@
         };
                 
         $("#like-btn").click(function(){
+            debugger;
                 callAjax("Router", "like", "post", "articles", data);
                 // var likesField = $("#likes-field");
                 // likesField.text(likesField.text() + 1);
         });
         
         $("#dislike-btn").click(function(){
+            debugger;
                 callAjax("Router", "dislike", "post", "articles", data);
                 // var dislikesField = $("#dislikes-field");
                 // dislikesField.text(dislikesField.text() + 1);
         });
         
         $("#update-btn").click(function(){
-                callAjax("Router", "update", "post", "articles", data);
+            debugger;
+                callAjax("Router", "updateRedirect", "post", "articles", data);
         });
         
         $("#delete-btn").click(function(){
+            debugger;
                 callAjax("Router", "delete", "post", "articles", data);
         });
         
         $("#download-btn").click(function(){
+            debugger;
             var filename = $("#title").text() + '.txt',
                 text = $("#text").text();
             download(filename, text);
@@ -59,8 +79,9 @@
             if(data.text.length > 0) {
                 callAjax2("Router", "create", "post", "comments", data);
                 $("#comments-container")
-                    .children(".comment")
-                    .after('<div class="comment">' + data.text + '</div>');
+                    .children(".comment:last")
+                    .after('<div class="comment">' + getCurrentDate() + ' ' + data.text + '</div>')
+
                 $("#comment-field").val("");
             }
         });
@@ -107,7 +128,7 @@
    <label>Коментари</label>
    <div id="comments-container">
         <?php foreach($data["article"]->getComments() as $comment)
-                echo '<div class="comment list-group-item">'.$comment->getPublishDate(). ' ' .$comment->getText().'</div>';
+                echo '<div class="comment list-group-item">'.$comment->getPublishDate() . ' ' .$comment->getText().'</div>';
         ?>
    </div>
    <div>

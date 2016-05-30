@@ -21,7 +21,6 @@
         });
         
         $(".updatable").click(function(event){
-            debugger;
             var elementChildren = $(event.target).parents().eq(1).children();
             var data = {
                 id : event.target.id

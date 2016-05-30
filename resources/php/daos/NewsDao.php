@@ -8,7 +8,7 @@ class NewsDao extends BaseDao{
      
      public function add($news){
         $conn = get_connection();
-        $query = 'INSERT INTO news (text, publishDate) VALUES ("' . $news->getText() . '", ' . date('Y-m-d', strtotime(date('Y-m-d'))) . ')';
+        $query = 'INSERT INTO news (text, publishDate) VALUES ("' . $news->getText() . '", "' . date('Y-m-d', strtotime(date('Y-m-d'))) . '")';
                 
         $entity = mysqli_query($conn, $query);
         mysqli_close($conn);

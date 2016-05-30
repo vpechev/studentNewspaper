@@ -7,10 +7,9 @@ class CommentDao extends BaseDao{
      
      public function add($comment){
         $conn = get_connection();
-        $entityDate = $comment->getPublishDate();
         $query = 'INSERT INTO '.$this->tableName
            . ' (authorId, articleId, text, publishDate) '
-           . 'VALUES ("' . $comment->getAuthorId() . '", "' . $comment->getArticleId() . '", "' . $comment->getText() . '", ' . $entityDate . ')';
+           . 'VALUES ("' . $comment->getAuthorId() . '", "' . $comment->getArticleId() . '", "' . $comment->getText() . '", "' . date('Y-m-d', strtotime(date('Y-m-d'))) . '")';
                 
         //$entity = mysqli_query($conn, $query);
         if (!mysqli_query($conn, $query)) {
@@ -48,11 +47,11 @@ class CommentDao extends BaseDao{
      
      public function findAllByArticleId($articleId){
         $conn = get_connection();
-        $query = 'SELECT id, authorId, articleId, text, publishDate FROM '.$this->tableName; 
+        $query = 'SELECT id, authorId, articleId, text, publishDate FROM '.$this->tableName . ' WHERE articleId = ' . $articleId . ';'; 
                                    
         $entitiesList = array();
         $dbQuery = mysqli_query($conn, $query);
-        while($row = mysqli_fetch_assoc($dbQuery)){
+        while( $row = mysqli_fetch_assoc($dbQuery) ){
             $entity = new Comment($row["id"], $row["authorId"], $row["articleId"], $row["text"], $row["publishDate"]);
             $entitiesList[] = $entity;
         }

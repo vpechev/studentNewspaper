@@ -5,13 +5,19 @@
     include_once  "CommentsController.php";
     
     class ArticlesController extends BaseController{
-        static function get($id) {
+        static function getFull($id) {
             $dao = new ArticleDao();
             $article = $dao->findById($id);
             $comments = CommentsController::getByArticleId($article->getId());
             $article->setComments($comments);
             $data["article"] = $article; 
             render($data, '../../templates/articles/articleDetails.php');             
+        }
+        
+        static function get($id) {
+            $dao = new ArticleDao();
+            $article = $dao->findById($id);
+            return $article;
         }
         
         static function getAll() {

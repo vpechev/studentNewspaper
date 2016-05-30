@@ -60,32 +60,38 @@
                     $controller->create($entity);
                     break;
                 case "updateRedirect" :
+                    var_dump('asdads');
                     $entity = $controller->get($_POST["data"]["id"]);
-                    
+                    var_dump($entity);
                     $data["id"] = $entity -> getId();
                     $data["title"] = $entity -> getTitle();
                     $data["text"] = $entity -> getText();
-                    $data["date"] = $entity -> getPublishDate;
+                    $data["date"] = $entity -> getPublishDate();
                     $data["category"] = $entity -> getCategoryEntry();
                     render($data, '/../../templates/articles/articleUpdate.php');
                     break;
                 case "update" :
-                    $entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], $_SESSION['user-id'], $_POST["data"]["date"], $_POST["data"]["category"], $_POST["data"]["likesCount"], $_POST["data"]["dislikesCount"]);
+                    //$entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], $_SESSION['user-id'], $_POST["data"]["date"], $_POST["data"]["category"], $_POST["data"]["likesCount"], $_POST["data"]["dislikesCount"]);
+                    $entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], 5, $_POST["data"]["date"], $_POST["data"]["category"], 0, 0);
                     $controller->update($entity);
                     break;
                 case "details" :
                     $id = $_POST["data"]["id"];
-                    $controller->get($id);
+                    $controller->getFull($id);
                     break;
                 case "like" :
+                    var_dump('like');
                     $id = $_POST["data"]["id"];
+                    var_dump($id);
                     $controller->like($id); 
                     break;
                 case "dislike" :
+                var_dump("dislike");
                     $id = $_POST["data"]["id"];
                     $controller->dislike($id); 
                     break;       
                 case "delete" : 
+                var_dump("delete");
                     $id = intval($_POST["data"]["id"]);
                     $controller->delete($id);
                     break;

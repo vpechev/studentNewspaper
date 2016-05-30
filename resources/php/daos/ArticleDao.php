@@ -35,8 +35,6 @@ class ArticleDao extends BaseDao {
                         . '", userId = "' . $article -> getAuthorId() 
                         . '", publishDate = "' . date('Y-m-d', strtotime($article -> getPublishDate())) 
                         . '", category = "' . $article -> getCategory() 
-                        . '", likesCount = "' . $article -> getLikesCount() 
-                        . '", dislikesCount = "' . $article -> getDislikesCount() 
                         . '" WHERE id = ' . $article->getId(); 
                 
         $entity = mysqli_query($conn, $query);
