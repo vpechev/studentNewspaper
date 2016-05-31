@@ -123,6 +123,16 @@
             render(null, '/../../templates/contacts/contacts.php');
         } else if($_POST['pageTo'] == 'logout') {
             render(null, '/../../templates/users/logout.php');
+        } else if ($_POST['pageTo'] == 'login'){
+            $username = trim($_POST['data']['username']);
+            $password = trim($_POST['data']['password']);
+
+            if($username == 'ivan' && $password =='ivan'){
+                $_SESSION['user-id'] = 5;
+            } else {
+                echo 'Грешно потребителско име или парола!';
+            }
+            render(null, '/../auth.php');
         }
     }
 ?>

@@ -27,7 +27,7 @@
     }
 ?>
 
-<div>
+<div class="col col-md-6">
     <form id="register-form" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
         <h2>Регистрация</h2>
         <div>

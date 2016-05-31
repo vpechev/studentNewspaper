@@ -29,6 +29,10 @@
     });
 </script>
 
+<?php
+var_dump(isset($_SESSION['user-id']));
+?>
+
 <h1>Новини</h1>
 <div>
     <button id="add-new" class="btn btn-large btn-success" >Създай нов</button>
