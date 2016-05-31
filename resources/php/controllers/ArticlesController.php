@@ -39,7 +39,7 @@
         }
         
         static function like($id) {
-            var_dump($id);
+            var_dump('controller');
             $dao = new ArticleDao();
             $dao->like($id);
             ArticlesController::get($id);            

@@ -39,7 +39,7 @@
             }
         } else if($_POST['pageTo'] == 'articles') {
             $controller = new ArticlesController();
-            
+                        
             switch($_POST['action']){
                 case "getAll" :
                     $controller->getAll();
@@ -60,9 +60,9 @@
                     $controller->create($entity);
                     break;
                 case "updateRedirect" :
-                    var_dump('asdads');
+                    echo ('asdads');
                     $entity = $controller->get($_POST["data"]["id"]);
-                    var_dump($entity);
+                    
                     $data["id"] = $entity -> getId();
                     $data["title"] = $entity -> getTitle();
                     $data["text"] = $entity -> getText();
@@ -80,9 +80,8 @@
                     $controller->getFull($id);
                     break;
                 case "like" :
-                    var_dump('like');
+                    var_dump("OFFFFFFFFF");
                     $id = $_POST["data"]["id"];
-                    var_dump($id);
                     $controller->like($id); 
                     break;
                 case "dislike" :

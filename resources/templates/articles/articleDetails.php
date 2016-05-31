@@ -30,20 +30,20 @@
     $(document).ready(function() {
         var data = { 
             id : $("#element-id").val(),
-            title : $("#title").text(), 
-            text : $("#text").text(), 
+            title : '' + $("#title").text(), 
+            text : '' + $("#text").text(), 
             likesCount : $("#likes-field").text(), 
-            dislikesCount : $("#dislikes-field").text(), 
-            title : $("#title").text(), 
-            publishDate : $('#publishDate'),
-            category : $('#category').attr('value')
+            dislikesCount : '' + $("#dislikes-field").text(), 
+            title : '' + $("#title").text(), 
+            publishDate : '' + $('#publishDate'),
+            category : '' + $('#category').attr('value'),
+            userId : '' + 5
         };
                 
         $("#like-btn").click(function(){
-            debugger;
-                callAjax("Router", "like", "post", "articles", data);
-                // var likesField = $("#likes-field");
-                // likesField.text(likesField.text() + 1);
+            callAjax2("Router", "like", "post", "articles", data);
+            var likesField = $("#likes-field");
+            likesField.text(likesField.text() + 1);
         });
         
         $("#dislike-btn").click(function(){

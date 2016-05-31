@@ -21,7 +21,7 @@ function callAjax2(controller, action, type, pageTo, data) {
                     pageTo: pageTo,
                     data : data
                 },
-            type: type
-            
-            });
+            type: type,
+            success : function(){}
+           });
 }

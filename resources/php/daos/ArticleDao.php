@@ -74,16 +74,18 @@ class ArticleDao extends BaseDao {
      }
      
      public function like($id) {
-         var_dump($id);
         $conn = get_connection();
-        $query = "UPDATE SET likesCount = SET likesCount + 1 WHERE id = " . $id;
-        mysqli_query($conn, $query);
+        $query = 'UPDATE articles SET likesCount = likesCount + 1 WHERE id = ' . $id;
+        
+         if (!mysqli_query($conn, $query)) {
+              printf("Errormessage: %s\n", mysqli_error($conn));
+        }
         mysqli_close($conn); 
      }
 
      public function dislike($id) {
         $conn = get_connection();
-        $query = "UPDATE SET dislikesCount = SET dislikesCount + 1 WHERE id = " . $id;
+        $query = "UPDATE articles SET dislikesCount = dislikesCount + 1 WHERE id = " . $id;
         mysqli_query($conn, $query);
         mysqli_close($conn); 
      }
