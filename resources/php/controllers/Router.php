@@ -110,7 +110,8 @@
               }
         } 
         else if($_POST['pageTo'] == 'users') {
-            render(null, '/../../templates/users/usersList.php');
+            $controller = new UsersController();
+            $controller->getAll();
         } else if($_POST['pageTo'] == 'home') {
             render(null, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .'auth.php');
         } else if($_POST['pageTo'] == 'videos') {
@@ -120,14 +121,12 @@
         } else if($_POST['pageTo'] == 'logout') {
             render(null, '/../../templates/users/logout.php');
         } else if ($_POST['pageTo'] == 'login'){
+            $controller = new UsersController();
             $username = trim($_POST['data']['username']);
             $password = trim($_POST['data']['password']);
-
-            if($username == 'ivan' && $password =='ivan'){
-                $_SESSION['user-id'] = 5;
-            } else {
-                echo 'Грешно потребителско име или парола!';
-            }
+            
+            $_SESSION['user-id'] = $controller->get($username, $password);
+            
             render(null, '/../auth.php');
         } else if ($_POST['pageTo'] == 'register') {
             $controller = new UsersController();
@@ -139,7 +138,11 @@
             $user = new User(0, $username, $passwordHash);
             
             $id = $controller->create($user);
-            $_SESSION['user-id'] = $id;
+            if($id != -1){
+                $_SESSION['user-id'] = $id;
+            } else {
+                var_dump("Eба си майката");
+            }
             render(null, '/../auth.php');
                        
             }

@@ -5,9 +5,9 @@
     
     class UsersController extends BaseController{
         static function get($username, $password) {
+            $passHash = md5($password);
             $dao = new UserDao();
-            return $dao->findByUsernameAndPassword($id);
-                         
+            return $dao->getIdByUsernameAndPassword($username, $passHash);
         }
         
         static function getAll() {

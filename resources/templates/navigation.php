@@ -44,6 +44,7 @@
             <li> <span id="users-link">Потребители</span> </li>
             <li> <span id="articles-link">Статии</span> </li>           
             <li> <span id="videos-link">Клипове</span></li>
+            <li> <span id="videos-link">ФМИ</span></li>
             <li> <span id="contacts-link">Контакти </span></li>
             <li> <span id="logout-link">Изход </span></li>
         </ul>

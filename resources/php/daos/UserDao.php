@@ -37,6 +37,26 @@ class UserDao extends BaseDao{
         return $entity;
      }
      
+     public function getIdByUsernameAndPassword($username, $password){
+        $conn = get_connection();
+        $query = 'SELECT id FROM Users WHERE username = "' . $username . '" AND password = "' . $password . '";'; 
+        $id;
+        $dbQuery = mysqli_query($conn, $query);
+        while($row = mysqli_fetch_assoc($dbQuery)){
+            $id = $row["id"];
+        }
+        var_dump($id);
+        if(empty($id)){
+            $id = -1;
+        }
+        
+        mysqli_close($conn);
+        
+        var_dump($id);
+        
+        return $id;
+     }
+     
      public function findAll(){
         $conn = get_connection();
         $query = "SELECT id, username FROM users"; 
