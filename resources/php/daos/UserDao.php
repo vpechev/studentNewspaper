@@ -8,11 +8,14 @@ class UserDao extends BaseDao{
      
      public function add($user){
         $conn = get_connection();
-        $query = 'INSERT INTO users (username, password) VALUES ("' . $user->getUsername() . '", ' . $user->getPassword() . ')';
+        $query = 'INSERT INTO users (username, password) VALUES ("' . $user->getUsername() . '", "' . $user->getPassword() . '")';
                 
         $entity = mysqli_query($conn, $query);
+        
+        $id = mysqli_insert_id($conn);
         mysqli_close($conn);
-        return  mysql_query( "SELECT LAST_INSERT_ID()" );
+
+        return $id;
      }
      
      public function update($user){

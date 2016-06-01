@@ -130,13 +130,13 @@
             }
             render(null, '/../auth.php');
         } else if ($_POST['pageTo'] == 'register') {
-            $controller = new UserController();
+            $controller = new UsersController();
             
             $username = trim($_POST['data']['username']);
             $password = trim($_POST['data']['password']);
             $passwordHash = md5($password);
-             
-            $user = new User($username, $passwordHash);
+            
+            $user = new User(0, $username, $passwordHash);
             
             $id = $controller->create($user);
             $_SESSION['user-id'] = $id;

@@ -15,11 +15,11 @@ class User {
     }
     
     public function getUsername(){
-        return $this->id;
+        return $this->username;
     }
     
     public function getPassword(){
-        return $this->id;
+        return $this->password;
     }
 }
 ?>

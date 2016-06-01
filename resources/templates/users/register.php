@@ -17,8 +17,8 @@
                     username : username,
                     password : passhash,
                 };
-            debugger;
-                //callAjax("Router", "", "post", "register", data); 
+                
+                callAjax("Router", "", "post", "register", data); 
             } else {
                 $('#reg-msg')
                     .addClass('text-danger')

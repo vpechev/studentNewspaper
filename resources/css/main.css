@@ -34,11 +34,19 @@
 #add-comment-btn {
     width: 10%;
     margin-left: 1%;
-    height: 11%;
+    height: 11\%;
     margin-top: 20px;
     margin-bottom: 116px;
 }
 
 #submit-btn, #reg-submit-btn {
     margin-top: 20px;
+}
+
+#forecast_embed {
+    width: 340px;
+}
+
+#onlineRadioLink {
+    width: 340px;
 }
