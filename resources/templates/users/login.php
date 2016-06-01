@@ -16,11 +16,11 @@
     <h2>Вход</h2>
     <div>
         <label for="username">Потребителско име</label>
-        <input id="username" type="text" name="username" />
+        <input id="username" type="text" class="form-control" name="username" />
     </div>
     <div>
         <label for="password">Парола</label>
-        <input id="password" type="password"  name="password" />
+        <input id="password" type="password" class="form-control" name="password" />
     </div>
-    <div> <button id="submit-btn">Вход</button> </div>
+    <div> <button id="submit-btn" class="btn btn-lg btn-success btn-block">Вход</button> </div>
 </div>

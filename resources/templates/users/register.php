@@ -1,49 +1,51 @@
-<?php
-      include_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "models" . DIRECTORY_SEPARATOR . "User.php";
-      include_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "controllers" . DIRECTORY_SEPARATOR . "UsersController.php";
-      
-      if($_POST){
-        if(isset($_POST['reg-username']) 
-            && isset($_POST['reg-password'])
-            && isset($_POST['reg-re-password']))
-        {
-            $username = trim($_POST['username']);
-            $password = trim($_POST['password']);
-            $rePassword = trim($_POST['password']);
-            
-            if($password == $rePassword){
-                $controller = new UserController();
-                $user = new User($username, $passwordHash);
-                $controller->create($user);
-                $passwordHash = md5($password); 
-                
-                $controller->create($user);
-                               
-                $_SESSION['user-id'] = 5;
+<script>
+    $(document).ready(function() {
+        $('#reg-submit-btn').click(function(){
+            debugger;
+            var username = $.trim($('#reg-username').val()),
+                password = $.trim($('#reg-password').val()),
+                rePassword = $.trim($('#reg-re-password').val());
+            if(username.length === 0){
+                $('#reg-msg')
+                    .addClass('text-danger')
+                    .text('Въведете потребителско име');
+                return;
+            }    
+            if(password === rePassword){
+                var passhash = calcMD5(password);
+                var data = {
+                    username : username,
+                    password : passhash,
+                };
+            debugger;
+                //callAjax("Router", "", "post", "register", data); 
             } else {
-                echo 'Паролите не съвпадат';
+                $('#reg-msg')
+                    .addClass('text-danger')
+                    .text('Паролите не съвпадат');
+                return;
             }
-        }   
-    }
-?>
+        });
+        
+    }); 
+</script>
 
 <div class="col col-md-6">
-    <form id="register-form" method="POST" action="<?php echo $_SERVER["PHP_SELF"];?>">
-        <h2>Регистрация</h2>
-        <div>
-            <label for="username">Потребителско име</label>
-            <input id="reg-username" type="text" name="reg-username"/>
-        </div>
-        <div>
-            <label for="password">Парола</label>
-            <input id="reg-password" type="password" name="reg-password"/>
-        </div>
-        <div>
-            <label for="re-password">Парола</label>
-            <input id="reg-re-password" type="password" name="reg-re-password"/>
-        </div>
-        <div>
-            <input id="submit-btn" type="submit" value="Регистрирай"/>
-        </div>
-    </form>
+    <h2>Регистрация</h2>
+    <div>
+        <label for="reg-username">Потребителско име</label>
+        <input id="reg-username" type="text" name="reg-username" class="form-control"/>
+    </div>
+    <div>
+        <label for="reg-password">Парола</label>
+        <input id="reg-password" type="password" name="reg-password" class="form-control"/>
+    </div>
+    <div>
+        <label for="reg-re-password">Парола</label>
+        <input id="reg-re-password" type="password" name="reg-re-password" class="form-control"/>
+    </div>
+    <div>
+        <div id="reg-msg"></div>
+        <button id="reg-submit-btn" class="btn btn-lg btn-primary btn-block">Регистрирай</button>
+    </div>
 </div>

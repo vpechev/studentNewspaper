@@ -80,17 +80,14 @@
                     $controller->getFull($id);
                     break;
                 case "like" :
-                    var_dump("OFFFFFFFFF");
                     $id = $_POST["data"]["id"];
                     $controller->like($id); 
                     break;
                 case "dislike" :
-                var_dump("dislike");
                     $id = $_POST["data"]["id"];
                     $controller->dislike($id); 
                     break;       
                 case "delete" : 
-                var_dump("delete");
                     $id = intval($_POST["data"]["id"]);
                     $controller->delete($id);
                     break;
@@ -132,6 +129,19 @@
                 echo 'Грешно потребителско име или парола!';
             }
             render(null, '/../auth.php');
-        }
-    }
+        } else if ($_POST['pageTo'] == 'register') {
+            $controller = new UserController();
+            
+            $username = trim($_POST['data']['username']);
+            $password = trim($_POST['data']['password']);
+            $passwordHash = md5($password);
+             
+            $user = new User($username, $passwordHash);
+            
+            $id = $controller->create($user);
+            $_SESSION['user-id'] = $id;
+            render(null, '/../auth.php');
+                       
+            }
+       }
 ?>

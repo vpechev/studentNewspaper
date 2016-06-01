@@ -18,8 +18,8 @@
         
         static function create($entity) {
             $dao = new UserDao();
-            $dao->add($entity);
-            return null;
+            $id = $dao->add($entity);
+            return $id;
         }
     }
 ?>

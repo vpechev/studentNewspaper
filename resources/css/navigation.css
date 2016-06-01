@@ -66,8 +66,8 @@
 }
 
 #main-navigation {
-    margin-left : 160px;
 	position: absolute;
 	z-index: 2;
     /*margin-bottom: 200px; to be removed*/
+	margin-left: 15%	
 }

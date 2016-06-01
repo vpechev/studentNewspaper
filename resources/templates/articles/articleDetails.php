@@ -45,6 +45,7 @@
             var likesField = $("#likes-field");
             likesField.text(parseInt(likesField.text()) + 1);
             $('#like-btn').prop('disabled', 'disabled');
+            $('#dislike-btn').prop('disabled', 'disabled');
         });
         
         $("#dislike-btn").click(function(){
@@ -52,20 +53,18 @@
             var dislikesField = $("#dislikes-field");
             dislikesField.text(parseInt(dislikesField.text()) + 1);
             $('#dislike-btn').prop('disabled', 'disabled');
+            $('#like-btn').prop('disabled', 'disabled');
         });
         
         $("#update-btn").click(function(){
-            debugger;
-                callAjax("Router", "updateRedirect", "post", "articles", data);
+            callAjax("Router", "updateRedirect", "post", "articles", data);
         });
         
         $("#delete-btn").click(function(){
-            debugger;
-                callAjax("Router", "delete", "post", "articles", data);
+            callAjax("Router", "delete", "post", "articles", data);
         });
         
         $("#download-btn").click(function(){
-            debugger;
             var filename = $("#title").text() + '.txt',
                 text = $("#text").text();
             download(filename, text);
@@ -111,7 +110,7 @@
 </div>
 <div>
    <label>Дата на публикуване</label>
-   <div id="publishDate"><?php echo $data["article"]->getPublishDate()?></div>
+   <div id="publishDate"><?php echo date("Y-m-d", strtotime($data["article"]->getPublishDate())); ?></div>
 </div>
 <div>
    <label>Категория</label>

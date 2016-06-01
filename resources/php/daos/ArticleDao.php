@@ -7,7 +7,6 @@ class ArticleDao extends BaseDao {
      
      public function add($article){
         $conn = get_connection();
-        //var_dump($article->getCategory());
         $entityDate = date('Y-m-d', strtotime($article->getPublishDate()));
         $query = 'INSERT INTO articles 
                         (title, text, userId, publishDate, category, likesCount, dislikesCount) 
