@@ -40,17 +40,18 @@
             userId : '' + 5
         };
                 
-        $("#like-btn").click(function(){
+        $('#like-btn').click(function(){
             callAjax2("Router", "like", "post", "articles", data);
             var likesField = $("#likes-field");
-            likesField.text(likesField.text() + 1);
+            likesField.text(parseInt(likesField.text()) + 1);
+            $('#like-btn').prop('disabled', 'disabled');
         });
         
         $("#dislike-btn").click(function(){
-            debugger;
-                callAjax("Router", "dislike", "post", "articles", data);
-                // var dislikesField = $("#dislikes-field");
-                // dislikesField.text(dislikesField.text() + 1);
+            callAjax2("Router", "dislike", "post", "articles", data);
+            var dislikesField = $("#dislikes-field");
+            dislikesField.text(parseInt(dislikesField.text()) + 1);
+            $('#dislike-btn').prop('disabled', 'disabled');
         });
         
         $("#update-btn").click(function(){

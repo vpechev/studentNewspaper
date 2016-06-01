@@ -39,16 +39,15 @@
         }
         
         static function like($id) {
-            var_dump('controller');
             $dao = new ArticleDao();
             $dao->like($id);
-            ArticlesController::get($id);            
+            //ArticlesController::get($id);            
         }
         
         static function dislike($id) {
             $dao = new ArticleDao();
             $dao->dislike($id);
-            ArticlesController::get($id);
+            //ArticlesController::get($id);
         }
         
         static function delete($id) {
