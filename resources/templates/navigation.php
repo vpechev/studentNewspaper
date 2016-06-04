@@ -33,6 +33,14 @@
         $("#logout-link").click(function(){
             callAjax("Router", "", "post", "logout");
         });      
+        
+        $('#about-fmi-link').click(function(){
+            callAjax("Router", "", "post", "fmi-about");
+        });
+        
+         $('#photos-link').click(function(){
+            callAjax("Router", "", "post", "photos");
+        });
     });
 </script>
 
@@ -44,7 +52,8 @@
             <li> <span id="users-link">Потребители</span> </li>
             <li> <span id="articles-link">Статии</span> </li>           
             <li> <span id="videos-link">Клипове</span></li>
-            <li> <span id="videos-link">ФМИ</span></li>
+            <li> <span id="about-fmi-link">ФМИ</span></li>
+            <li> <span id="photos-link">Снимки</span></li>
             <li> <span id="contacts-link">Контакти </span></li>
             <li> <span id="logout-link">Изход </span></li>
         </ul>

@@ -31,7 +31,7 @@
 </script>
 
 <div class="col col-md-6">
-    <h2>Регистрация</h2>
+    <h2 class="page-header">Регистрация</h2>
     <div>
         <label for="reg-username">Потребителско име</label>
         <input id="reg-username" type="text" name="reg-username" class="form-control"/>

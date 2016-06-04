@@ -47,12 +47,15 @@ class CommentDao extends BaseDao{
      
      public function findAllByArticleId($articleId){
         $conn = get_connection();
+        $userDao = new UserDao();
         $query = 'SELECT id, authorId, articleId, text, publishDate FROM '.$this->tableName . ' WHERE articleId = ' . $articleId . ';'; 
                                    
         $entitiesList = array();
         $dbQuery = mysqli_query($conn, $query);
         while( $row = mysqli_fetch_assoc($dbQuery) ){
             $entity = new Comment($row["id"], $row["authorId"], $row["articleId"], $row["text"], $row["publishDate"]);
+            $author = $userDao->findById($entity->getAuthorId());
+            $entity -> setAuthor($author);
             $entitiesList[] = $entity;
         }
         mysqli_close($conn);

@@ -29,32 +29,35 @@ class UserDao extends BaseDao{
      
      public function findById($id){
         $conn = get_connection();
-        $query = "USE studentnewspaper; 
-                  SELECT * FROM Users WHERE id = " . $id; 
-                
-        $entity = mysqli_query($conn, $query);
+        $query = "SELECT id, username FROM Users WHERE id = " . $id; 
+        
+        $entity;        
+        $dbQuery = mysqli_query($conn, $query);
+         while($row = mysqli_fetch_assoc($dbQuery)){
+            $entity = new User($row["id"], $row["username"], null);
+        }
         mysqli_close($conn);
         return $entity;
      }
      
-     public function getIdByUsernameAndPassword($username, $password){
+     public function getByUsernameAndPassword($username, $password){
         $conn = get_connection();
-        $query = 'SELECT id FROM Users WHERE username = "' . $username . '" AND password = "' . $password . '";'; 
+        $query = 'SELECT id, username FROM Users WHERE username = "' . $username . '" AND password = "' . $password . '";'; 
         $id;
+        $username;
         $dbQuery = mysqli_query($conn, $query);
         while($row = mysqli_fetch_assoc($dbQuery)){
             $id = $row["id"];
+            $username = $row["username"];
         }
-        var_dump($id);
+        
         if(empty($id)){
             $id = -1;
         }
         
         mysqli_close($conn);
         
-        var_dump($id);
-        
-        return $id;
+        return new USer($id, $username, null);
      }
      
      public function findAll(){

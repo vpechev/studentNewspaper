@@ -35,20 +35,20 @@
     });
 </script>
 
-<h1>Статии</h1>
+<h1 class="page-header">Статии</h1>
 <div>
     <button id="add-new" class="btn btn-large btn-success" >Създай нов</button>
     <button id="delete-all" class="btn btn-large btn-success">Изтрий всички</button>  
 </div>
-<table class="table">
+<table class="table table-hover">
     <thead>
       <tr>
         <th>Номер</th>
         <th>Заглавие</th>
         <th>Дата</th>
         <th>Рейтинг</th>
-        <th>Редакция</th>
-        <th>Изтриване</th>
+        <!--<th>Редакция</th>-->
+        <!--<th>Изтриване</th>-->
         <th>Към статията</th>
       </tr>
     </thead>
@@ -59,8 +59,8 @@
             <td> <?php echo $el->getTitle(); ?> </td>
             <td> <?php echo date('Y-m-d', strtotime($el->getPublishDate())); ?> </td>
             <td> <?php echo $el->getRating(); ?> </td>
-            <td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>
-            <td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>
+            <!--<td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>-->
+            <!--<td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>-->
             <td> <button id="<?php echo $el->getId(); ?>" class="gotoable btn btn-large btn-default">Към статията</button></td>
         </tr>        
         <?php } ?>

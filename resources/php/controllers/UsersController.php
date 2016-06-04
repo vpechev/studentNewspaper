@@ -7,7 +7,7 @@
         static function get($username, $password) {
             $passHash = md5($password);
             $dao = new UserDao();
-            return $dao->getIdByUsernameAndPassword($username, $passHash);
+            return $dao->getByUsernameAndPassword($username, $passHash);
         }
         
         static function getAll() {

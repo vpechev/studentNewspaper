@@ -1,4 +1,4 @@
-<div id="left-banner" class="col col-md-1" style="margin-right: 5%;">
+<div id="left-banner" class="col col-md-1" style="margin-right: 5%; margin-top:30px;">
     <div class="rounded-block">
     <div class="rounded-block-top-left"></div>
     <div class="rounded-block-top-right"></div>
@@ -8,7 +8,7 @@
         
         <div id="block-block-4" class="block block-block">
                                 <div class="block-icon pngfix"></div>
-                      <h2 class="title block-title pngfix">Facebook</h2>
+                      <h2 class="title block-title pngfix">Кариерен център ФМИ</h2>
                     <div class="content">
             <div id="fb-root" class=" fb_reset">
 	&nbsp;<div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="http://staticxx.facebook.com/connect/xd_arbiter.php?version=42#channel=fc7702adc9aa08&amp;origin=http%3A%2F%2Fcareer.fmi.uni-sofia.bg" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter.php?version=42#channel=fc7702adc9aa08&amp;origin=http%3A%2F%2Fcareer.fmi.uni-sofia.bg" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>

@@ -24,7 +24,7 @@
         if(mm<10){
             mm='0'+mm
         } 
-        return yyyy+'/' + mm +'/' + dd;
+        return yyyy+'-' + mm +'-' + dd;
     }
     
     $(document).ready(function() {
@@ -70,6 +70,16 @@
             download(filename, text);
         });
         
+        $("#download-xml-btn").click(function(){
+            var articleTitle = $("#title").text(),
+                filename = articleTitle + '.xml',
+                text = $("#text").text(),
+                authorUsername = $("#author").text(),
+                xmlStructure = '\<\?xml version="1.0"\?\><article><title>' + articleTitle + '</title><author>' + authorUsername +'</author><text>' + text + '</text></article>'; 
+                
+            download(filename, xmlStructure);
+        });
+        
         $("#add-comment-btn").click(function(){
             var data = {
                         articleId : $("#element-id").val(),
@@ -80,7 +90,13 @@
                 callAjax2("Router", "create", "post", "comments", data);
                 $("#comments-container")
                     .children(".comment:last")
-                    .after('<div class="comment">' + getCurrentDate() + ' ' + data.text + '</div>')
+                    .after('<table class="comment table alert-success">'
+                            + '<tr>'
+                                + '<th>' + getCurrentDate() + '</th>'
+                                + '<th>' + <?php echo json_encode($_SESSION['username']); ?>+ ' </th>'
+                            + '</tr>' 
+                            + '<tr><td colspan="2">' + data.text + '<td></div>'
+                      + '</table>')
 
                 $("#comment-field").val("");
             }
@@ -88,13 +104,17 @@
     });
     
 </script>
-<h1>Детайли</h1>
+<h1 class="page-header">Детайли</h1>
 <div>
     <input id="element-id" hidden value="<?php echo $data["article"]->getId()?>"/>
 </div>
 <div>
    <label>Заглавие</label>
    <div id="title"><?php echo $data["article"]->getTitle()?></div>
+</div>
+<div>
+   <label>Автор</label>
+   <div id="author"><?php echo $data["article"]->getAuthor()->getUsername();?></div>
 </div>
 <div>
    <label>Лайкове</label>
@@ -119,16 +139,24 @@
 <div>
     <button id="like-btn" class="btn btn-large btn-success">Харесвам</button>
     <button id="dislike-btn" class="btn btn-large btn-danger">Не харесвам</button>
-    <button id="update-btn" class="btn btn-large btn-warning">Редактирай</button>
-    <button id="delete-btn" class="btn btn-large btn-default">Изтрий</button>
+    <?php if($_SESSION['user-id'] == $data["article"]->getAuthor()->getId()) {?> 
+        <button id="update-btn" class="btn btn-large btn-warning">Редактирай</button>
+        <button id="delete-btn" class="btn btn-large btn-default">Изтрий</button>
+    <?php } ?>
     <button id="download-btn" class="btn btn-large btn-success">Изтегли</button>
-    </form>
+    <button id="download-xml-btn" class="btn btn-large btn-success">Изтегли XML</button>
 </div>
 <div>
    <label>Коментари</label>
    <div id="comments-container">
         <?php foreach($data["article"]->getComments() as $comment)
-                echo '<div class="comment list-group-item">'.$comment->getPublishDate() . ' ' .$comment->getText().'</div>';
+                echo '<table class="comment table alert-success">'
+                            . '<tr>'
+                                . '<th>' .date("Y-m-d", strtotime($comment->getPublishDate())) . '</th>'
+                                . '<th>' . $comment->getAuthor() -> getUsername() . '</th>'
+                            . '</tr>' 
+                            . '<tr><td colspan="2">' .$comment->getText() . '<td></div>'
+                      .'</table>';
         ?>
    </div>
    <div>

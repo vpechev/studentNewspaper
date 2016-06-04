@@ -1,6 +1,6 @@
-<h1>Потребители</h1>
+<h1 class="page-header">Потребители</h1>
 <div>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>Номер</th>

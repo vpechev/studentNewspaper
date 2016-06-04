@@ -34,6 +34,7 @@
     });
 </script>
 
+<h1 class="page-header"> Създаване на Статия</h1>
 <div>
     <div>
         <label for="title">Име</label>

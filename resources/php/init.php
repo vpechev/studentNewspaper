@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 //external libs and internal basefiles
 require_once 'resources/templates/includes.php';
@@ -18,7 +17,8 @@ $data = array();
 // $data['content'] = 'resources/templates/home.php';
 // $data['navigation'] = 'resources/templates/navigation.php';
 
-render($data, 'resources/templates/layouts/layout.php');
+//render($data, 'resources/templates/layouts/layout.php');
+include_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR .'layouts' . DIRECTORY_SEPARATOR . 'layout.php';
         
 
 

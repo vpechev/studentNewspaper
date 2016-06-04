@@ -15,6 +15,7 @@
     });
 </script>
 
+ <h1 class="page-header"> Промяна на новина</h1>
 <div>
     <div>
         <input id="element-id" hidden />

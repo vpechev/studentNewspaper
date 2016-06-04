@@ -13,6 +13,7 @@ class Article {
     private $dislikesCount;
     private $rating;
     private $comments;
+    private $author; 
     
     public function __construct($id, $title, $text, $authorId, $publishDate, $category, $likesCount, $dislikesCount){
         $this->id = $id;
@@ -74,6 +75,14 @@ class Article {
     
     public function setComments($commentsList){
         $this->comments = $commentsList;
+    }
+    
+    public function getAuthor(){
+        return $this->author;
+    }
+    
+    public function setAuthor($author){
+        return $this->author = $author;
     }
 }
 ?>

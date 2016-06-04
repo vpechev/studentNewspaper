@@ -9,6 +9,7 @@
     });
 </script>
 
+<h1 class="page-header">Създаване на новина</h1>
 <div>
     <div>
         <label for="text">Новина</label>

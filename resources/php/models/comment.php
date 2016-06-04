@@ -5,6 +5,7 @@ class Comment {
     private $articleId;
     private $text;
     private $publishDate;
+    private $author;
     
     public function __construct($id, $authorId, $articleId, $text, $publishDate){
         $this->id = $id;
@@ -32,6 +33,14 @@ class Comment {
     
     public function getPublishDate(){
         return $this->publishDate;
+    }
+    
+    public function getAuthor(){
+        return $this->author;
+    }
+    
+    public function setAuthor($author){
+        return $this->author = $author;
     }
 }
 ?>

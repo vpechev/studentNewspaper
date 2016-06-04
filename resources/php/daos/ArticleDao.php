@@ -43,11 +43,14 @@ class ArticleDao extends BaseDao {
      
      public function findById($id){
         $conn = get_connection();
+        $userDao = new UserDao();
         $query = "SELECT id, title, text, userId, publishDate, category, likesCount, dislikesCount FROM articles WHERE id = " . $id; 
         $entity;    
         $dbQuery = mysqli_query($conn, $query);                    
         while($row = mysqli_fetch_assoc($dbQuery)){
             $entity = new Article($row["id"], $row["title"], $row["text"], $row["userId"], $row["publishDate"], $row["category"], $row["likesCount"], $row["dislikesCount"]);
+            $author = $userDao->findById($entity->getAuthorId());
+            $entity->setAuthor($author);
         }
         
         mysqli_close($conn);

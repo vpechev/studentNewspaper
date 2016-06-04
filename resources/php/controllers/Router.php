@@ -1,4 +1,8 @@
 <?php
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
     require_once "NewsController.php"; 
     require_once "ArticlesController.php"; 
     require_once "CommentsController.php";
@@ -51,7 +55,7 @@
                     $entity = new Article(  0, //id         
                                             $_POST["data"]["title"], 
                                             $_POST["data"]["text"], 
-                                            1, //author id 
+                                            $_SESSION['user-id'], 
                                             date('d/m/Y', time()), 
                                             intval($_POST["data"]["category"]), 
                                             0,
@@ -60,7 +64,6 @@
                     $controller->create($entity);
                     break;
                 case "updateRedirect" :
-                    echo ('asdads');
                     $entity = $controller->get($_POST["data"]["id"]);
                     
                     $data["id"] = $entity -> getId();
@@ -100,7 +103,7 @@
               switch($_POST['action']){
                 case "create" : 
                     $entity = new Comment(0, 
-                                          /*$_SESSION["user-id"], */ 1, 
+                                          $_SESSION["user-id"], 
                                           $_POST["data"]["articleId"],
                                           $_POST["data"]["text"],
                                           date('d/m/Y', time())
@@ -124,9 +127,9 @@
             $controller = new UsersController();
             $username = trim($_POST['data']['username']);
             $password = trim($_POST['data']['password']);
-            
-            $_SESSION['user-id'] = $controller->get($username, $password);
-            
+            $user = $controller->get($username, $password);
+            $_SESSION['user-id'] = $user->getId();
+            $_SESSION['username'] = $user->getUsername();
             render(null, '/../auth.php');
         } else if ($_POST['pageTo'] == 'register') {
             $controller = new UsersController();
@@ -140,11 +143,13 @@
             $id = $controller->create($user);
             if($id != -1){
                 $_SESSION['user-id'] = $id;
-            } else {
-                var_dump("Eба си майката");
+                $_SESSION['username'] = $username;
             }
             render(null, '/../auth.php');
-                       
-            }
-       }
+        } else if($_POST['pageTo'] == 'fmi-about') {
+            render(null, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'fmi' . DIRECTORY_SEPARATOR . 'fmi.php');
+        } else if($_POST['pageTo'] == 'photos') {
+            render(null, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'photos' . DIRECTORY_SEPARATOR . 'photosList.php');
+        }
+    }
 ?>

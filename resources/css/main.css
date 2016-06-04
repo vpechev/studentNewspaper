@@ -1,9 +1,40 @@
+* {margin:0;padding:0;} 
+html, body {height: 100%;}
+
+body{
+    background-image: url("../pics/body-background.png");
+    background-repeat: repeat;
+    color: lightgrey;
+    font-size: 20px;
+}
+
+
+input, textarea, select, #vlado-div, #tedi-div {
+    color: black;
+}
+
+label {
+    color: aqua;
+}
+
+tr:hover {
+    color: black;
+}
+
+a {
+    color: greenyellow;
+}
+
 #main-container {
     margin-top: 50px; 
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-bottom: 180px; /* must be same height as the footer */
 }
 
 #header, #footer {
-    background-color: gray;
+    background-image: url("../pics/header-footer-background.png");
+    background-repeat: repeat;
     height: 5%;
     color: white;
     font-size: 30px;
@@ -13,17 +44,22 @@
 }
 
 #footer {
-    margin-top: 50px;
+    /*margin-top: 50px;
     height: 10%;
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
+    position: relative;
+    margin-top: -180px; /* negative value of footer height */
+    height: 180px;
+    clear:both;
 }
 
 .comment {
     margin: 20px;
     /*border: 1px solid red;*/
+    color: green;    
 }
 
 .comment-field { 
@@ -49,4 +85,15 @@
 
 #onlineRadioLink {
     width: 340px;
+}
+
+#home-page-avatar {
+   width: 90%;  
+}
+
+#text {
+    background-color: lightgray;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    padding: 20px;
 }

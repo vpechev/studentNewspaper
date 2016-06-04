@@ -12,7 +12,7 @@
 </script>
 
 <div class="col col-md-6">
-    <h2>Вход</h2>
+    <h2 class="page-header">Вход</h2>
     <div>
         <label for="username">Потребителско име</label>
         <input id="username" type="text" class="form-control" name="username" />

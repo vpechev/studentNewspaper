@@ -29,23 +29,20 @@
     });
 </script>
 
-<?php
-var_dump(isset($_SESSION['user-id']));
-?>
 
-<h1>Новини</h1>
+<h1 class="page-header">Новини</h1>
 <div>
     <button id="add-new" class="btn btn-large btn-success" >Създай нов</button>
     <button id="delete-all" class="btn btn-large btn-success">Изтрий всички</button>  
 </div>
-<table class="table">
+<table class="table table-hover">
     <thead>
       <tr>
         <th>Номер</th>
         <th>Съдържание</th>
         <th>Дата</th>
-        <th>Редакция</th>
-        <th>Изтриване</th>
+        <!--<th>Редакция</th>-->
+        <!--<th>Изтриване</th>-->
       </tr>
     </thead>
     <?php $counter = 1; ?>
@@ -54,8 +51,8 @@ var_dump(isset($_SESSION['user-id']));
             <td> <?php echo $counter++; ?> </td>
             <td> <?php echo $el->getText(); ?> </td>
             <td> <?php echo date('Y-m-d', strtotime($el->getPublishDate())); ?> </td>
-            <td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>
-            <td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>
+            <!--<td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>-->
+            <!--<td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>-->
         </tr>        
         <?php } ?>
 </table>
