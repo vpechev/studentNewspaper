@@ -75,7 +75,7 @@
                     break;
                 case "update" :
                     //$entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], $_SESSION['user-id'], $_POST["data"]["date"], $_POST["data"]["category"], $_POST["data"]["likesCount"], $_POST["data"]["dislikesCount"]);
-                    $entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], 5, $_POST["data"]["date"], $_POST["data"]["category"], 0, 0);
+                    $entity = new Article($_POST["data"]["id"], $_POST["data"]["title"], $_POST["data"]["text"], $_SESSION['user-id'], $_POST["data"]["date"], $_POST["data"]["category"], 0, 0);
                     $controller->update($entity);
                     break;
                 case "details" :
