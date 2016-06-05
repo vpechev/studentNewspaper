@@ -56,6 +56,19 @@ a {
     clear:both;
 }
 
+.left-banner-item{
+    margin: 20px 10px 20px 0;
+}
+
+#left-banner {
+    margin-right: 5%;
+}
+
+#footer-img {
+    width: 130px;
+    height: 100px
+}
+
 .comment {
     margin: 20px;
     /*border: 1px solid red;*/

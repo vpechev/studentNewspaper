@@ -1,4 +1,4 @@
-<div id="left-banner" class="col col-md-1" style="margin-right: 5%; margin-top:30px;">
+<div id="left-banner" class="col col-md-1 left-banner-item style="margin-right: 5%; margin-top:30px;">
     <div class="rounded-block">
     <div class="rounded-block-top-left"></div>
     <div class="rounded-block-top-right"></div>
@@ -28,4 +28,17 @@
     <div class="rounded-block-bottom-left"></div>
     <div class="rounded-block-bottom-right"></div>
   </div>
+  
+  <div class="left-banner-item">
+    <a class="embedly-card" data-card-via="http://embed.ly/code?url=https%3A%2F%2Fvine.co%2Fv%2FO7J5H60OUwF" href="https://vine.co/v/O7J5H60OUwF">Swimming to the new page. More BTS in my Instagram /pinot. #animation #loop</a><script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+  </div>
+  
+  <div class="left-banner-item"
+    <iframe class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F18150336&url=https%3A%2F%2Fvimeo.com%2F18150336&image=http%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F117311910_1280.jpg&key=internal&type=text%2Fhtml&schema=vimeo" width="200" height="150" scrolling="no" frameborder="0" allowfullscreen></iframe>
+  </div>
+  
+  <div class="left-banner-item">
+    <a class="embedly-card" href="http://linkedin.com">LinkedIn</a>
+    <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+  </div>  
 </div>
