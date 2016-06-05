@@ -110,3 +110,7 @@ a {
     font-family: "Times New Roman", Times, serif;
     padding: 20px;
 }
+
+#likes-field, #dislikes-field {
+    font-size: 30px;
+}

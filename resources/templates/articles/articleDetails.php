@@ -116,13 +116,13 @@
    <label>Автор</label>
    <div id="author"><?php echo $data["article"]->getAuthor()->getUsername();?></div>
 </div>
-<div>
-   <label>Лайкове</label>
-   <div id="likes-field"><?php echo $data["article"]->getLikesCount()?></div>
+<div class="row">
+   <div class="col-md-1"><img src="resources/pics/thumbs_up.png"  width="50" height="50"/></div>
+   <div id="likes-field"  class="col-md-1"><?php echo $data["article"]->getLikesCount()?></div>
 </div>
-<div>
-   <label>Не-Лайкове</label>
-   <div id="dislikes-field"><?php echo $data["article"]->getDislikesCount()?></div>
+<div class="row">
+   <div class="col-md-1"><img src="resources/pics/thumbs_down.png" width="50" height="50" /></div>
+   <div id="dislikes-field" class="col-md-1"><?php echo $data["article"]->getDislikesCount()?></div>
 </div>
 <div>
    <label>Статия</label>
