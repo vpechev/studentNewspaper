@@ -90,7 +90,8 @@ a:hover:not(.active) {
     });
 </script>
 
-<div>
+<div id="add-videos-section">
+    <h2>Добави видео урок</h2>
     <label for="label">Име</label>
     <input id="label" type="text" />
     <label for="url">Линк</label>
@@ -98,19 +99,22 @@ a:hover:not(.active) {
     <button id="add-video-btn" class="btn btn-large btn-success">Добави</button>
    </div>
 
-<div class="col col-md-2"> 
-    <ul id="video-nav">
-        <li id="video-nav-title">Видео уроци за начинаещи</li>
-        <?php
-            foreach ($data["videosList"]  as $video) {
-                echo '<li class="video-option-li"><a id="'. $video->getLabel() . '" href="#">'. $video->getLabel() . '</a></li>';
-            }
-        ?>
-         
-    </ul>
-</div>
+<div>
+    <h2>Видео уроци</h2>
+    <div class="col col-md-2"> 
+        <ul id="video-nav">
+            <li id="video-nav-title">Видео уроци за начинаещи</li>
+            <?php
+                foreach ($data["videosList"]  as $video) {
+                    echo '<li class="video-option-li"><a id="'. $video->getLabel() . '" href="#">'. $video->getLabel() . '</a></li>';
+                }
+            ?>
+            
+        </ul>
+    </div>
 
-<div class="col col-md-10">
-    <iframe id="video-iframe" width="854" height="480" src="" frameborder="0" allowfullscreen></iframe>
+    <div class="col col-md-10">
+        <iframe id="video-iframe" width="854" height="480" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
 </div>
 

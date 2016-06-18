@@ -7,7 +7,6 @@ class VideoDao extends BaseDao{
      public function __construct() { }    
      
      public function add($user){
-         var_dump('dao');
         $conn = get_connection();
         $query = 'INSERT INTO videos (url, label) VALUES ("' . $user->getUrl() . '", "' . $user->getLabel() . '")';
                 

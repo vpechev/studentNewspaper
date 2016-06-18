@@ -33,7 +33,11 @@
 <h1 class="page-header">Новини</h1>
 <div>
     <button id="add-new" class="btn btn-large btn-success" >Създай нов</button>
-    <button id="delete-all" class="btn btn-large btn-success">Изтрий всички</button>  
+    <?php
+        if($_SESSION['is-admin']){
+            echo '<button id="delete-all" class="btn btn-large btn-success">Изтрий всички</button>';
+        }
+    ?>
 </div>
 <table class="table table-hover">
     <thead>

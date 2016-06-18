@@ -114,3 +114,7 @@ a {
 #likes-field, #dislikes-field {
     font-size: 30px;
 }
+
+#add-videos-section{
+    margin: 30px;
+}
