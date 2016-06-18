@@ -23,7 +23,7 @@
         });
 
         $("#videos-link").click(function(){
-            callAjax("Router", "", "post", "videos");
+            callAjax("Router", "getAll", "post", "videos");
         });        
 
         $("#contacts-link").click(function(){

@@ -7,6 +7,7 @@
     require_once "ArticlesController.php"; 
     require_once "CommentsController.php";
     require_once "UsersController.php";
+    require_once "VideosController.php";
      
     if(isset($_POST['pageTo'])){
         if($_POST['pageTo'] == 'news') {
@@ -118,7 +119,20 @@
         } else if($_POST['pageTo'] == 'home') {
             render(null, __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .'auth.php');
         } else if($_POST['pageTo'] == 'videos') {
-            render(null, '/../../templates/videos/videosList.php');
+            $controller = new VideosController();
+            switch($_POST['action']){
+                case "getAll" :
+                    $controller->getAll();
+                    break;
+                case 'create' :
+                    $entity = new Video(0, 
+                                        $_POST["data"]["url"],
+                                        $_POST["data"]["label"]
+                                        ); 
+                    $controller->create($entity);
+                    break;
+            }
+            
         } else if($_POST['pageTo'] == 'contacts') {
             render(null, '/../../templates/contacts/contacts.php');
         } else if($_POST['pageTo'] == 'logout') {

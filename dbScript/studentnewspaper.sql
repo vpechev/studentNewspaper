@@ -115,6 +115,13 @@ CREATE TABLE `users` (
 -- Indexes for dumped tables
 --
 
+
+CREATE TABLE `videos` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `url` varchar(50) NOT NULL,
+  `label` varchar(1000) NOT NULL
+) 
+
 --
 -- Indexes for table `articles`
 --
