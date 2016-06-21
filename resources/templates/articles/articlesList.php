@@ -44,6 +44,8 @@
         }
     ?>  
 </div>
+
+<div style="overflow-x:auto;">
 <table class="table table-hover">
     <thead>
       <tr>
@@ -65,7 +67,8 @@
             <td> <?php echo $el->getRating(); ?> </td>
             <!--<td> <button id="<?php echo $el->getId(); ?>" class="updatable btn btn-large btn-warning">Редактирай</button></td>-->
             <!--<td> <button id="<?php echo $el->getId(); ?>" class="deletable btn btn-large btn-danger">Изтрий</button></td>-->
-            <td> <button id="<?php echo $el->getId(); ?>" class="gotoable btn btn-large btn-default">Към статията</button></td>
+            <td> <button style="background-color:rgb(205, 227, 236);" id="<?php echo $el->getId(); ?>" class="gotoable btn btn-large btn-default">Към статията</button></td>
         </tr>        
         <?php } ?>
 </table>
+</div>

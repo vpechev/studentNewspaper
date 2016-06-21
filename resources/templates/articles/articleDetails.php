@@ -116,17 +116,20 @@
    <label>Автор</label>
    <div id="author"><?php echo $data["article"]->getAuthor()->getUsername();?></div>
 </div>
+
+<div style="float:left; width:80%">
+   <label>Статия</label>
+   <div id="text" ><?php echo $data["article"]->getText()?></div>
+</div>
+<div style="display:inline-block; margin-left:2%;">
 <div class="row">
-   <div class="col-md-1"><img src="resources/pics/thumbs_up.png"  width="50" height="50"/></div>
+   <div class="col-md-1"><img src="resources/pics/thumbs_up.png" style=" width:50px ;height:50px;margin:0;"/></div>
    <div id="likes-field"  class="col-md-1"><?php echo $data["article"]->getLikesCount()?></div>
 </div>
 <div class="row">
-   <div class="col-md-1"><img src="resources/pics/thumbs_down.png" width="50" height="50" /></div>
+   <div class="col-md-1"><img src="resources/pics/thumbs_down.png" style=" width:50px ;height:50px;margin:0;"/></div>
    <div id="dislikes-field" class="col-md-1"><?php echo $data["article"]->getDislikesCount()?></div>
 </div>
-<div>
-   <label>Статия</label>
-   <div id="text"><?php echo $data["article"]->getText()?></div>
 </div>
 <div>
    <label>Дата на публикуване</label>
