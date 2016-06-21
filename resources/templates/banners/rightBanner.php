@@ -1,12 +1,13 @@
-<div class="col col-md-1" style="margin-top:40px;">
-    <div>
-        <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=42.3583&lon=-71.0603&name=Downtown Boston"> 
-        </iframe>
+<div id="right-banner" class="col col-md-1" style="margin-top:5%;">
+    <div id="forcast_embed">
+        <a href="http://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/349727" class="aw-widget-legal">
+		</a><div id="awcc1466436072437" class="aw-widget-current" style="width:150px" data-locationkey="" data-unit="c" data-language="en-us" data-useip="true" data-uid="awcc1466436072437"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
     </div>
     
     
-    <div>
-        <a id="onlineRadioLink" href="http://radiotuna.com/dubstep-radio">dubstep radio</a><script type="text/javascript" src="http://radiotuna.com/OnlineRadioPlayer/EmbedRadio?playerParams=%7B%22styleSelection0%22%3A79%2C%22styleSelection1%22%3A57%2C%22styleSelection2%22%3A154%2C%22textColor%22%3A0%2C%22backgroundColor%22%3A15592941%2C%22buttonColor%22%3A16744626%2C%22glowColor%22%3A16744626%2C%22playerSize%22%3A240%2C%22playerType%22%3A%22style%22%7D&width=240&height=292"></script>
+    <div id="onlineRadioLink" >
+    <label for="onlineRadioLink">Радио</label>
+   <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A21a6vxrvfyllz3vnyyzvmwo4i%3Aplaylist%3A0BeQqm1JTziAv0Hhr4HdOo" width="150" height="300" frameborder="0" allowtransparency="true"></iframe>
     </div>
     
 </div>

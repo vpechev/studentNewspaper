@@ -31,7 +31,7 @@ class UserDao extends BaseDao{
         $conn = get_connection();
         $query = "SELECT id, username FROM Users WHERE id = " . $id; 
         
-        $entity;        
+        $entity=new User(-1,"",null);        
         $dbQuery = mysqli_query($conn, $query);
          while($row = mysqli_fetch_assoc($dbQuery)){
             $entity = new User($row["id"], $row["username"], null);

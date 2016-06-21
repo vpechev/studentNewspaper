@@ -1,51 +1,80 @@
+
+.navigation{
+	width: 90%;
+	margin: 0% auto;
+}
+
 .nav {
-	margin: 0px;
-	padding: 0px;
+	margin: 0%;
+	padding: 0%;
 	list-style: none;
 	font-style: normal;
-	font-size: 18px;
+	font-size: 1.75rem;
 	font-family: "Courier New", Courier, monospace;
 	text-align: center;
 }
 
+
 .nav li {
-	width: 160px;
+	width:10%;
 	position: relative;
 	cursor: pointer;
 }
+
 
 .nav li a, .nav li span {
 	background: #333;
 	color: #fff;
 	display: block;
-	padding: 7px 8px;
+	padding: 0.4%, 0.5%;
 	text-decoration: none;
-	border-top: 1px solid #069;
+	border-top: 0.5% solid #069;
+	border-radius: 0px 10px 0px 10px;
 }
 
 .nav li a:hover, .nav li span:hover {
-	color: #069;
+	color: #000000;
+	background-color: #ffffff;
 }
+
+.show-menu {
+	font-family: "Courier New", Courier, monospace;
+	text-decoration: none;
+	color: #fff;
+	background: rgba(0, 188, 212, 0.9);
+	text-align: center;
+	padding: 2% 0;
+	display: none;
+	cursor: pointer;
+	margin: 0;
+}
+
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+
+
 
 /*=== submenu ===*/
 
 .nav ul {
 	display: none;
 	position: absolute;
-	margin-left: 0px;
+	margin-left: 0%;
 	list-style: none;
-	padding: 0px;
+	padding: 0%;
 }
 
 .nav ul li {
-	width: 250px;
+	width: 10%;
 	float: left;
 }
 
 .nav ul a, .nav ul span {
 	display: block;
-	height: 15px;
-	padding: 7px 8px;
+	line-height: 2.75rem;
+	padding: 2px 3px;
 	color: #fff;
 	text-decoration: none;
 	border-bottom: 1px solid #222;
@@ -66,8 +95,71 @@
 }
 
 #main-navigation {
-	position: absolute;
-	z-index: 2;
-    /*margin-bottom: 200px; to be removed*/
-	margin-left: 11%	
+	/*position: absolute;*/
+	z-index: 2;	
+}
+
+/*back to the top button*/
+a.back-to-top {
+	display: none;
+	width: 5%;
+	height: 5%;
+	text-indent: -110%;
+	position: fixed;
+	z-index: 999;
+	right: 2%;
+	bottom: 2%;
+	background: #27AE61 url("../pics/up-arrow.png") no-repeat center 43%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+	.nav li:nth-child(3),.nav li:nth-child(8){
+		width: 15%;
+	}
+
+/* Smartfones and Tablets (portrait and landscape) ----------- */
+@media screen and (max-width : 800px){
+
+	.nav li, .nav li:nth-child(3),.nav li:nth-child(8){
+		clear: both;
+		width: 100%;
+		margin-bottom: 0.5%;
+		font-size: 2rem;
+	}
+	.show-menu {
+		display:block;
+		height: 10%;
+		font-size: 2rem;
+		line-height: 2rem;
+	}
+
+	#main-navigation{
+		display: none;
+	}
+}
+
+/*Laptops*/
+@media screen and (min-width: 801px){
+	.nav{
+		display: block;
+	}
+	.nav li{
+		width:20%;
+		margin: 0.1% 0%;
+	}
+	.nav li:nth-child(6){
+		margin-left: 10%;
+	}
+}
+
+@media screen and (min-width: 1200px){
+	.nav li{
+		width:10%;
+	}
+	.nav li:nth-child(6){
+		margin-left: 0%;
+	}
 }

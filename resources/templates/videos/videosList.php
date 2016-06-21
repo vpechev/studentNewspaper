@@ -5,19 +5,20 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    margin-left: -60px;
+    margin-left: -6%;
+    margin-bottom: 2%;
 
 }
 
 li {
-    
+
 }
 
 li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 2% 3%;
     text-decoration: none;
 }
 
@@ -30,11 +31,12 @@ a:hover:not(.active) {
 }
 
 #video-nav-title { 
-    background-color: lightblue;
-    color: #333;
+    background-color: rgba(124, 109, 187, 0.65);
+    color: #ffffff;
     font-weight: bold;
     text-align: center;
-    font-size: 15px;
+    font-size: 1em;
+
 }
 </style>
 
@@ -94,15 +96,17 @@ a:hover:not(.active) {
     <h2>Добави видео урок</h2>
     <label for="label">Име</label>
     <input id="label" type="text" />
+    <div id="mobile-break">
     <label for="url">Линк</label>
     <input id="url" type="text" />
+    </div>
     <button id="add-video-btn" class="btn btn-large btn-success">Добави</button>
    </div>
 
 <div>
     <h2>Видео уроци</h2>
     <div class="col col-md-2"> 
-        <ul id="video-nav">
+        <ul id="video-nav" style="border-radius:10px">
             <li id="video-nav-title">Видео уроци за начинаещи</li>
             <?php
                 foreach ($data["videosList"]  as $video) {
